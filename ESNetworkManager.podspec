@@ -24,6 +24,7 @@ s.subspec 'Core' do |ss|
 
 s.subspec 'Promise' do |ss|
 	ss.dependency 'PromiseKit/CorePromise', '~> 6.8'
+	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Promise/**/*.{swift}"
 	end
 s.subspec 'Rx' do |ss|
 	ss.dependency 'RxSwift', '~> 5'
