@@ -17,12 +17,15 @@ s.license = { :type => "MIT", :file => "LICENSE" }
 
 s.subspec 'Core' do |ss|
 	ss.dependency 'Alamofire', '~> 5.0'
-  end
+	 end
 
 s.subspec 'Promise' do |ss|
 	ss.dependency 'PromiseKit/CorePromise', '~> 6.8'
-end
+	end
 s.subspec 'Rx' do |ss|
 	ss.dependency 'RxSwift', '~> 5'
-  end
+	end
+s.subspec 'ObjectMapper' do |ss|
+	ss.dependency 'ObjectMapper', '~> 3.5'
+	end
 end
