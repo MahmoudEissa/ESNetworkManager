@@ -18,6 +18,8 @@ s.dependency 'Alamofire', '~> 5.0'
 
 s.subspec 'Core' do |ss|
 	ss.dependency 'Alamofire', '~> 5.0'
+	ss.source_files = "ESNetworkManager/**/*.{swift}"
+	ss.resources = "ESNetworkManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 	 end
 
 s.subspec 'Promise' do |ss|
