@@ -15,4 +15,14 @@ s.source_files = "ESNetworkManager/**/*.{swift}"
 s.resources = "ESNetworkManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 s.swift_version = "5.0"
 s.license = { :type => "MIT", :file => "LICENSE" }
+
+s.subspec 'Core' do | Core |
+
+  end
+s.subspec 'Promise' do | Promise |
+	Promise.dependency 'PromiseKit/CorePromise", '~> 6.8'
+  end
+s.subspec 'Rx' do | Rx |
+	Rx.dependency 'RxSwift', '~> 5'
+  end
 end
