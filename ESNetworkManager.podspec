@@ -27,9 +27,11 @@ s.subspec 'Promise' do |ss|
 	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Promise/**/*.{swift}"
 	end
 s.subspec 'Rx' do |ss|
+	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Rx/**/*.{swift}"
 	ss.dependency 'RxSwift', '~> 5'
 	end
 s.subspec 'ObjectMapper' do |ss|
+	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+ObjectMapper/**/*.{swift}"
 	ss.dependency 'ObjectMapper', '~> 3.5'
 	end
 end
