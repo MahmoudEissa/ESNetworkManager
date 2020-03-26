@@ -9,20 +9,20 @@
 /* Begin PBXBuildFile section */
 		4231C74FBCEBDD7DF852B220 /* libPods-ESNetworkManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3C7A39C51ED4154C2259C3 /* libPods-ESNetworkManager.a */; };
 		520C62D0242D042B004CE3DC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62CF242D042B004CE3DC /* Models.swift */; };
+		520C6307242D2A09004CE3DC /* ESNetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62FA242D2A09004CE3DC /* ESNetworkResponseMapper.swift */; };
+		520C6308242D2A09004CE3DC /* CodableNetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62FB242D2A09004CE3DC /* CodableNetworkResponseMapper.swift */; };
+		520C6309242D2A09004CE3DC /* RawRepresentableNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62FC242D2A09004CE3DC /* RawRepresentableNetworkReponseMapper.swift */; };
+		520C630A242D2A09004CE3DC /* RawRepresentableArrayNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62FD242D2A09004CE3DC /* RawRepresentableArrayNetworkReponseMapper.swift */; };
+		520C630B242D2A09004CE3DC /* ESNetworkManagerExtenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62FF242D2A09004CE3DC /* ESNetworkManagerExtenions.swift */; };
+		520C630C242D2A09004CE3DC /* ESNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C6300242D2A09004CE3DC /* ESNetworkManager.swift */; };
+		520C630D242D2A09004CE3DC /* MPFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C6302242D2A09004CE3DC /* MPFile.swift */; };
+		520C630E242D2A09004CE3DC /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C6303242D2A09004CE3DC /* NetworkResponse.swift */; };
+		520C630F242D2A09004CE3DC /* ESNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C6304242D2A09004CE3DC /* ESNetworkRequest.swift */; };
+		520C6310242D2A09004CE3DC /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C6305242D2A09004CE3DC /* JSON.swift */; };
+		520C6311242D2A09004CE3DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C6306242D2A09004CE3DC /* Extensions.swift */; };
 		524960A3242C9C9D008BCB4F /* ESNetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 524960A1242C9C9D008BCB4F /* ESNetworkManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		524D3AE6242C9E890000001C /* MappableNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD2242C9E890000001C /* MappableNetworkReponseMapper.swift */; };
 		524D3AE8242C9E890000001C /* MappableArrayNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD4242C9E890000001C /* MappableArrayNetworkReponseMapper.swift */; };
-		524D3AE9242C9E890000001C /* ESNetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD6242C9E890000001C /* ESNetworkResponseMapper.swift */; };
-		524D3AEA242C9E890000001C /* CodableNetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD7242C9E890000001C /* CodableNetworkResponseMapper.swift */; };
-		524D3AEB242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD8242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift */; };
-		524D3AEC242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD9242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift */; };
-		524D3AEE242C9E890000001C /* MPFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3ADD242C9E890000001C /* MPFile.swift */; };
-		524D3AEF242C9E890000001C /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3ADE242C9E890000001C /* NetworkResponse.swift */; };
-		524D3AF0242C9E890000001C /* ESNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3ADF242C9E890000001C /* ESNetworkRequest.swift */; };
-		524D3AF1242C9E890000001C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AE0242C9E890000001C /* JSON.swift */; };
-		524D3AF2242C9E890000001C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AE1242C9E890000001C /* Extensions.swift */; };
-		524D3AF3242C9E890000001C /* ESNetworkManagerExtenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AE3242C9E890000001C /* ESNetworkManagerExtenions.swift */; };
-		524D3AF4242C9E890000001C /* ESNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AE4242C9E890000001C /* ESNetworkManager.swift */; };
 		524D3AF6242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AF5242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift */; };
 		524D3AF8242C9F710000001C /* ESNetworkManager+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AF7242C9F710000001C /* ESNetworkManager+Promise.swift */; };
 		524D3AFA242C9F760000001C /* ESNetworkManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AF9242C9F760000001C /* ESNetworkManager+Rx.swift */; };
@@ -47,22 +47,22 @@
 /* Begin PBXFileReference section */
 		271D0A1177502830BA1B0310 /* Pods-ESNetworkManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESNetworkManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-ESNetworkManagerTests/Pods-ESNetworkManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		520C62CF242D042B004CE3DC /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		520C62FA242D2A09004CE3DC /* ESNetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkResponseMapper.swift; sourceTree = "<group>"; };
+		520C62FB242D2A09004CE3DC /* CodableNetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableNetworkResponseMapper.swift; sourceTree = "<group>"; };
+		520C62FC242D2A09004CE3DC /* RawRepresentableNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableNetworkReponseMapper.swift; sourceTree = "<group>"; };
+		520C62FD242D2A09004CE3DC /* RawRepresentableArrayNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableArrayNetworkReponseMapper.swift; sourceTree = "<group>"; };
+		520C62FF242D2A09004CE3DC /* ESNetworkManagerExtenions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkManagerExtenions.swift; sourceTree = "<group>"; };
+		520C6300242D2A09004CE3DC /* ESNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkManager.swift; sourceTree = "<group>"; };
+		520C6302242D2A09004CE3DC /* MPFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPFile.swift; sourceTree = "<group>"; };
+		520C6303242D2A09004CE3DC /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		520C6304242D2A09004CE3DC /* ESNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkRequest.swift; sourceTree = "<group>"; };
+		520C6305242D2A09004CE3DC /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		520C6306242D2A09004CE3DC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5249609E242C9C9D008BCB4F /* ESNetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ESNetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		524960A1242C9C9D008BCB4F /* ESNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESNetworkManager.h; sourceTree = "<group>"; };
 		524960A2242C9C9D008BCB4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		524D3AD2242C9E890000001C /* MappableNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableNetworkReponseMapper.swift; sourceTree = "<group>"; };
 		524D3AD4242C9E890000001C /* MappableArrayNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableArrayNetworkReponseMapper.swift; sourceTree = "<group>"; };
-		524D3AD6242C9E890000001C /* ESNetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkResponseMapper.swift; sourceTree = "<group>"; };
-		524D3AD7242C9E890000001C /* CodableNetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableNetworkResponseMapper.swift; sourceTree = "<group>"; };
-		524D3AD8242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableNetworkReponseMapper.swift; sourceTree = "<group>"; };
-		524D3AD9242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableArrayNetworkReponseMapper.swift; sourceTree = "<group>"; };
-		524D3ADD242C9E890000001C /* MPFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPFile.swift; sourceTree = "<group>"; };
-		524D3ADE242C9E890000001C /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
-		524D3ADF242C9E890000001C /* ESNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkRequest.swift; sourceTree = "<group>"; };
-		524D3AE0242C9E890000001C /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		524D3AE1242C9E890000001C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		524D3AE3242C9E890000001C /* ESNetworkManagerExtenions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkManagerExtenions.swift; sourceTree = "<group>"; };
-		524D3AE4242C9E890000001C /* ESNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkManager.swift; sourceTree = "<group>"; };
 		524D3AF5242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+ObjectMapper.swift"; sourceTree = "<group>"; };
 		524D3AF7242C9F710000001C /* ESNetworkManager+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Promise.swift"; sourceTree = "<group>"; };
 		524D3AF9242C9F760000001C /* ESNetworkManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Rx.swift"; sourceTree = "<group>"; };
@@ -100,6 +100,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		520C62F8242D2A09004CE3DC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				520C62F9242D2A09004CE3DC /* ESNetworkResponseMapper */,
+				520C62FE242D2A09004CE3DC /* Manager */,
+				520C6301242D2A09004CE3DC /* Helpers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		520C62F9242D2A09004CE3DC /* ESNetworkResponseMapper */ = {
+			isa = PBXGroup;
+			children = (
+				520C62FA242D2A09004CE3DC /* ESNetworkResponseMapper.swift */,
+				520C62FB242D2A09004CE3DC /* CodableNetworkResponseMapper.swift */,
+				520C62FC242D2A09004CE3DC /* RawRepresentableNetworkReponseMapper.swift */,
+				520C62FD242D2A09004CE3DC /* RawRepresentableArrayNetworkReponseMapper.swift */,
+			);
+			path = ESNetworkResponseMapper;
+			sourceTree = "<group>";
+		};
+		520C62FE242D2A09004CE3DC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				520C62FF242D2A09004CE3DC /* ESNetworkManagerExtenions.swift */,
+				520C6300242D2A09004CE3DC /* ESNetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		520C6301242D2A09004CE3DC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				520C6302242D2A09004CE3DC /* MPFile.swift */,
+				520C6303242D2A09004CE3DC /* NetworkResponse.swift */,
+				520C6304242D2A09004CE3DC /* ESNetworkRequest.swift */,
+				520C6305242D2A09004CE3DC /* JSON.swift */,
+				520C6306242D2A09004CE3DC /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		52496094242C9C9D008BCB4F = {
 			isa = PBXGroup;
 			children = (
@@ -133,12 +175,10 @@
 		524D3ACD242C9E280000001C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				524D3AE2242C9E890000001C /* Manager */,
+				520C62F8242D2A09004CE3DC /* Core */,
 				524D3AD1242C9E890000001C /* ESNetworkManager+ObjectMapper */,
 				524D3ADA242C9E890000001C /* ESNetworkManager+Promise */,
 				524D3ACF242C9E890000001C /* ESNetworkManager+Rx */,
-				524D3AD5242C9E890000001C /* ESNetworkResponseMapper */,
-				524D3ADC242C9E890000001C /* Helpers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -161,44 +201,12 @@
 			path = "ESNetworkManager+ObjectMapper";
 			sourceTree = "<group>";
 		};
-		524D3AD5242C9E890000001C /* ESNetworkResponseMapper */ = {
-			isa = PBXGroup;
-			children = (
-				524D3AD6242C9E890000001C /* ESNetworkResponseMapper.swift */,
-				524D3AD7242C9E890000001C /* CodableNetworkResponseMapper.swift */,
-				524D3AD8242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift */,
-				524D3AD9242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift */,
-			);
-			path = ESNetworkResponseMapper;
-			sourceTree = "<group>";
-		};
 		524D3ADA242C9E890000001C /* ESNetworkManager+Promise */ = {
 			isa = PBXGroup;
 			children = (
 				524D3AF7242C9F710000001C /* ESNetworkManager+Promise.swift */,
 			);
 			path = "ESNetworkManager+Promise";
-			sourceTree = "<group>";
-		};
-		524D3ADC242C9E890000001C /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				524D3ADD242C9E890000001C /* MPFile.swift */,
-				524D3ADE242C9E890000001C /* NetworkResponse.swift */,
-				524D3ADF242C9E890000001C /* ESNetworkRequest.swift */,
-				524D3AE0242C9E890000001C /* JSON.swift */,
-				524D3AE1242C9E890000001C /* Extensions.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		524D3AE2242C9E890000001C /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				524D3AE3242C9E890000001C /* ESNetworkManagerExtenions.swift */,
-				524D3AE4242C9E890000001C /* ESNetworkManager.swift */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		524D3B00242C9F920000001C /* ESNetworkManagerTests */ = {
@@ -393,22 +401,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524D3AEE242C9E890000001C /* MPFile.swift in Sources */,
-				524D3AF1242C9E890000001C /* JSON.swift in Sources */,
+				520C6311242D2A09004CE3DC /* Extensions.swift in Sources */,
+				520C6310242D2A09004CE3DC /* JSON.swift in Sources */,
+				520C630B242D2A09004CE3DC /* ESNetworkManagerExtenions.swift in Sources */,
 				524D3AE6242C9E890000001C /* MappableNetworkReponseMapper.swift in Sources */,
-				524D3AEC242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift in Sources */,
 				524D3AE8242C9E890000001C /* MappableArrayNetworkReponseMapper.swift in Sources */,
-				524D3AEB242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift in Sources */,
+				520C6308242D2A09004CE3DC /* CodableNetworkResponseMapper.swift in Sources */,
 				524D3AFA242C9F760000001C /* ESNetworkManager+Rx.swift in Sources */,
-				524D3AE9242C9E890000001C /* ESNetworkResponseMapper.swift in Sources */,
-				524D3AF0242C9E890000001C /* ESNetworkRequest.swift in Sources */,
-				524D3AF3242C9E890000001C /* ESNetworkManagerExtenions.swift in Sources */,
-				524D3AEF242C9E890000001C /* NetworkResponse.swift in Sources */,
+				520C630D242D2A09004CE3DC /* MPFile.swift in Sources */,
+				520C6309242D2A09004CE3DC /* RawRepresentableNetworkReponseMapper.swift in Sources */,
 				524D3AF8242C9F710000001C /* ESNetworkManager+Promise.swift in Sources */,
-				524D3AEA242C9E890000001C /* CodableNetworkResponseMapper.swift in Sources */,
-				524D3AF4242C9E890000001C /* ESNetworkManager.swift in Sources */,
+				520C630A242D2A09004CE3DC /* RawRepresentableArrayNetworkReponseMapper.swift in Sources */,
+				520C630F242D2A09004CE3DC /* ESNetworkRequest.swift in Sources */,
+				520C630E242D2A09004CE3DC /* NetworkResponse.swift in Sources */,
+				520C630C242D2A09004CE3DC /* ESNetworkManager.swift in Sources */,
+				520C6307242D2A09004CE3DC /* ESNetworkResponseMapper.swift in Sources */,
 				524D3AF6242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift in Sources */,
-				524D3AF2242C9E890000001C /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
