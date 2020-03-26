@@ -14,6 +14,7 @@ s.source_files = "ESNetworkManager/**/*.{swift}"
 s.resources = "ESNetworkManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 s.swift_version = "5.0"
 s.license = { :type => "MIT", :file => "LICENSE" }
+s.dependency 'Alamofire', '~> 5.0'
 
 s.subspec 'Core' do |ss|
 	ss.dependency 'Alamofire', '~> 5.0'
