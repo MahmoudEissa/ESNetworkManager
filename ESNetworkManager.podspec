@@ -8,7 +8,7 @@ s.author = { "Mahmoud Eissa" => "mh.eissa90@gmail.com" }
 s.homepage = "https://github.com/MahmoudEissa/APIClient"
 s.version = "0.1.0"
 s.social_media_url   = "www.linkedin.com/in/mahmoudeissa"
-s.source = { :git => "https://github.com/MahmoudEissa/ESNetworkManager.git", :branch => 'Development', :tag => "#{s.version}"}
+#s.source = { :git => "https://github.com/MahmoudEissa/ESNetworkManager.git", :branch => 'Development', :tag => "#{s.version}"}
 s.framework = "Foundation"
 s.source_files = "ESNetworkManager/**/*.{swift}"
 s.resources = "ESNetworkManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
