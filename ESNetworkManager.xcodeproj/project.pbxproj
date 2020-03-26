@@ -1,0 +1,678 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4231C74FBCEBDD7DF852B220 /* libPods-ESNetworkManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3C7A39C51ED4154C2259C3 /* libPods-ESNetworkManager.a */; };
+		520C62D0242D042B004CE3DC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62CF242D042B004CE3DC /* Models.swift */; };
+		524960A3242C9C9D008BCB4F /* ESNetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 524960A1242C9C9D008BCB4F /* ESNetworkManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		524D3AE6242C9E890000001C /* MappableNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD2242C9E890000001C /* MappableNetworkReponseMapper.swift */; };
+		524D3AE8242C9E890000001C /* MappableArrayNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD4242C9E890000001C /* MappableArrayNetworkReponseMapper.swift */; };
+		524D3AE9242C9E890000001C /* ESNetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD6242C9E890000001C /* ESNetworkResponseMapper.swift */; };
+		524D3AEA242C9E890000001C /* CodableNetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD7242C9E890000001C /* CodableNetworkResponseMapper.swift */; };
+		524D3AEB242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD8242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift */; };
+		524D3AEC242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AD9242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift */; };
+		524D3AEE242C9E890000001C /* MPFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3ADD242C9E890000001C /* MPFile.swift */; };
+		524D3AEF242C9E890000001C /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3ADE242C9E890000001C /* NetworkResponse.swift */; };
+		524D3AF0242C9E890000001C /* ESNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3ADF242C9E890000001C /* ESNetworkRequest.swift */; };
+		524D3AF1242C9E890000001C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AE0242C9E890000001C /* JSON.swift */; };
+		524D3AF2242C9E890000001C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AE1242C9E890000001C /* Extensions.swift */; };
+		524D3AF3242C9E890000001C /* ESNetworkManagerExtenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AE3242C9E890000001C /* ESNetworkManagerExtenions.swift */; };
+		524D3AF4242C9E890000001C /* ESNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AE4242C9E890000001C /* ESNetworkManager.swift */; };
+		524D3AF6242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AF5242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift */; };
+		524D3AF8242C9F710000001C /* ESNetworkManager+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AF7242C9F710000001C /* ESNetworkManager+Promise.swift */; };
+		524D3AFA242C9F760000001C /* ESNetworkManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AF9242C9F760000001C /* ESNetworkManager+Rx.swift */; };
+		524D3B04242C9F920000001C /* ESNetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5249609E242C9C9D008BCB4F /* ESNetworkManager.framework */; };
+		524D3B11242CA0050000001C /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B0D242CA0040000001C /* MockAPIClient.swift */; };
+		524D3B12242CA0050000001C /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B0E242CA0040000001C /* MockURLProtocol.swift */; };
+		524D3B16242CA0560000001C /* ESNetworkResponseMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B14242CA0560000001C /* ESNetworkResponseMappingTests.swift */; };
+		524D3B17242CA0560000001C /* ESNetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B15242CA0560000001C /* ESNetworkManagerTests.swift */; };
+		95D82563EB2EA59DE030692E /* libPods-ESNetworkManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB5B6D28DA7C3DCBEDE56E6 /* libPods-ESNetworkManagerTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		524D3B05242C9F920000001C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52496095242C9C9D008BCB4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5249609D242C9C9D008BCB4F;
+			remoteInfo = ESNetworkManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		271D0A1177502830BA1B0310 /* Pods-ESNetworkManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESNetworkManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-ESNetworkManagerTests/Pods-ESNetworkManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		520C62CF242D042B004CE3DC /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		5249609E242C9C9D008BCB4F /* ESNetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ESNetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		524960A1242C9C9D008BCB4F /* ESNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESNetworkManager.h; sourceTree = "<group>"; };
+		524960A2242C9C9D008BCB4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524D3AD2242C9E890000001C /* MappableNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableNetworkReponseMapper.swift; sourceTree = "<group>"; };
+		524D3AD4242C9E890000001C /* MappableArrayNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableArrayNetworkReponseMapper.swift; sourceTree = "<group>"; };
+		524D3AD6242C9E890000001C /* ESNetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkResponseMapper.swift; sourceTree = "<group>"; };
+		524D3AD7242C9E890000001C /* CodableNetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableNetworkResponseMapper.swift; sourceTree = "<group>"; };
+		524D3AD8242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableNetworkReponseMapper.swift; sourceTree = "<group>"; };
+		524D3AD9242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableArrayNetworkReponseMapper.swift; sourceTree = "<group>"; };
+		524D3ADD242C9E890000001C /* MPFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPFile.swift; sourceTree = "<group>"; };
+		524D3ADE242C9E890000001C /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		524D3ADF242C9E890000001C /* ESNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkRequest.swift; sourceTree = "<group>"; };
+		524D3AE0242C9E890000001C /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		524D3AE1242C9E890000001C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		524D3AE3242C9E890000001C /* ESNetworkManagerExtenions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkManagerExtenions.swift; sourceTree = "<group>"; };
+		524D3AE4242C9E890000001C /* ESNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkManager.swift; sourceTree = "<group>"; };
+		524D3AF5242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+ObjectMapper.swift"; sourceTree = "<group>"; };
+		524D3AF7242C9F710000001C /* ESNetworkManager+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Promise.swift"; sourceTree = "<group>"; };
+		524D3AF9242C9F760000001C /* ESNetworkManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Rx.swift"; sourceTree = "<group>"; };
+		524D3AFF242C9F920000001C /* ESNetworkManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESNetworkManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		524D3B03242C9F920000001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524D3B0D242CA0040000001C /* MockAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
+		524D3B0E242CA0040000001C /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		524D3B14242CA0560000001C /* ESNetworkResponseMappingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkResponseMappingTests.swift; sourceTree = "<group>"; };
+		524D3B15242CA0560000001C /* ESNetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkManagerTests.swift; sourceTree = "<group>"; };
+		95B8F4715F2784FEF0CCB348 /* Pods-ESNetworkManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESNetworkManager.debug.xcconfig"; path = "Target Support Files/Pods-ESNetworkManager/Pods-ESNetworkManager.debug.xcconfig"; sourceTree = "<group>"; };
+		BCB5B6D28DA7C3DCBEDE56E6 /* libPods-ESNetworkManagerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ESNetworkManagerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD3C7A39C51ED4154C2259C3 /* libPods-ESNetworkManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ESNetworkManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B75ECC52508AEC865E7325 /* Pods-ESNetworkManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESNetworkManager.release.xcconfig"; path = "Target Support Files/Pods-ESNetworkManager/Pods-ESNetworkManager.release.xcconfig"; sourceTree = "<group>"; };
+		D9CB4873A965097F83BB91A6 /* Pods-ESNetworkManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESNetworkManagerTests.release.xcconfig"; path = "Target Support Files/Pods-ESNetworkManagerTests/Pods-ESNetworkManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5249609B242C9C9D008BCB4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4231C74FBCEBDD7DF852B220 /* libPods-ESNetworkManager.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524D3AFC242C9F920000001C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524D3B04242C9F920000001C /* ESNetworkManager.framework in Frameworks */,
+				95D82563EB2EA59DE030692E /* libPods-ESNetworkManagerTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52496094242C9C9D008BCB4F = {
+			isa = PBXGroup;
+			children = (
+				524960A0242C9C9D008BCB4F /* ESNetworkManager */,
+				524D3B00242C9F920000001C /* ESNetworkManagerTests */,
+				5249609F242C9C9D008BCB4F /* Products */,
+				A3A11643BE1CB3524DC0FDF1 /* Pods */,
+				CCB797674CC6FD93D85D8B90 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5249609F242C9C9D008BCB4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5249609E242C9C9D008BCB4F /* ESNetworkManager.framework */,
+				524D3AFF242C9F920000001C /* ESNetworkManagerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		524960A0242C9C9D008BCB4F /* ESNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				524D3ACD242C9E280000001C /* Sources */,
+				524960A1242C9C9D008BCB4F /* ESNetworkManager.h */,
+				524960A2242C9C9D008BCB4F /* Info.plist */,
+			);
+			path = ESNetworkManager;
+			sourceTree = "<group>";
+		};
+		524D3ACD242C9E280000001C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				524D3AE2242C9E890000001C /* Manager */,
+				524D3AD1242C9E890000001C /* ESNetworkManager+ObjectMapper */,
+				524D3ADA242C9E890000001C /* ESNetworkManager+Promise */,
+				524D3ACF242C9E890000001C /* ESNetworkManager+Rx */,
+				524D3AD5242C9E890000001C /* ESNetworkResponseMapper */,
+				524D3ADC242C9E890000001C /* Helpers */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		524D3ACF242C9E890000001C /* ESNetworkManager+Rx */ = {
+			isa = PBXGroup;
+			children = (
+				524D3AF9242C9F760000001C /* ESNetworkManager+Rx.swift */,
+			);
+			path = "ESNetworkManager+Rx";
+			sourceTree = "<group>";
+		};
+		524D3AD1242C9E890000001C /* ESNetworkManager+ObjectMapper */ = {
+			isa = PBXGroup;
+			children = (
+				524D3AF5242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift */,
+				524D3AD2242C9E890000001C /* MappableNetworkReponseMapper.swift */,
+				524D3AD4242C9E890000001C /* MappableArrayNetworkReponseMapper.swift */,
+			);
+			path = "ESNetworkManager+ObjectMapper";
+			sourceTree = "<group>";
+		};
+		524D3AD5242C9E890000001C /* ESNetworkResponseMapper */ = {
+			isa = PBXGroup;
+			children = (
+				524D3AD6242C9E890000001C /* ESNetworkResponseMapper.swift */,
+				524D3AD7242C9E890000001C /* CodableNetworkResponseMapper.swift */,
+				524D3AD8242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift */,
+				524D3AD9242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift */,
+			);
+			path = ESNetworkResponseMapper;
+			sourceTree = "<group>";
+		};
+		524D3ADA242C9E890000001C /* ESNetworkManager+Promise */ = {
+			isa = PBXGroup;
+			children = (
+				524D3AF7242C9F710000001C /* ESNetworkManager+Promise.swift */,
+			);
+			path = "ESNetworkManager+Promise";
+			sourceTree = "<group>";
+		};
+		524D3ADC242C9E890000001C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				524D3ADD242C9E890000001C /* MPFile.swift */,
+				524D3ADE242C9E890000001C /* NetworkResponse.swift */,
+				524D3ADF242C9E890000001C /* ESNetworkRequest.swift */,
+				524D3AE0242C9E890000001C /* JSON.swift */,
+				524D3AE1242C9E890000001C /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		524D3AE2242C9E890000001C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				524D3AE3242C9E890000001C /* ESNetworkManagerExtenions.swift */,
+				524D3AE4242C9E890000001C /* ESNetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		524D3B00242C9F920000001C /* ESNetworkManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				524D3B15242CA0560000001C /* ESNetworkManagerTests.swift */,
+				524D3B14242CA0560000001C /* ESNetworkResponseMappingTests.swift */,
+				524D3B0D242CA0040000001C /* MockAPIClient.swift */,
+				524D3B0E242CA0040000001C /* MockURLProtocol.swift */,
+				520C62CF242D042B004CE3DC /* Models.swift */,
+				524D3B03242C9F920000001C /* Info.plist */,
+			);
+			path = ESNetworkManagerTests;
+			sourceTree = "<group>";
+		};
+		A3A11643BE1CB3524DC0FDF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95B8F4715F2784FEF0CCB348 /* Pods-ESNetworkManager.debug.xcconfig */,
+				D8B75ECC52508AEC865E7325 /* Pods-ESNetworkManager.release.xcconfig */,
+				271D0A1177502830BA1B0310 /* Pods-ESNetworkManagerTests.debug.xcconfig */,
+				D9CB4873A965097F83BB91A6 /* Pods-ESNetworkManagerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CCB797674CC6FD93D85D8B90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD3C7A39C51ED4154C2259C3 /* libPods-ESNetworkManager.a */,
+				BCB5B6D28DA7C3DCBEDE56E6 /* libPods-ESNetworkManagerTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		52496099242C9C9D008BCB4F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524960A3242C9C9D008BCB4F /* ESNetworkManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5249609D242C9C9D008BCB4F /* ESNetworkManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 524960A6242C9C9D008BCB4F /* Build configuration list for PBXNativeTarget "ESNetworkManager" */;
+			buildPhases = (
+				5CC1D0074160E57F1629248D /* [CP] Check Pods Manifest.lock */,
+				52496099242C9C9D008BCB4F /* Headers */,
+				5249609A242C9C9D008BCB4F /* Sources */,
+				5249609B242C9C9D008BCB4F /* Frameworks */,
+				5249609C242C9C9D008BCB4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ESNetworkManager;
+			productName = ESNetworkManager;
+			productReference = 5249609E242C9C9D008BCB4F /* ESNetworkManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		524D3AFE242C9F920000001C /* ESNetworkManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 524D3B07242C9F920000001C /* Build configuration list for PBXNativeTarget "ESNetworkManagerTests" */;
+			buildPhases = (
+				77853B34F669821474C1E1B3 /* [CP] Check Pods Manifest.lock */,
+				524D3AFB242C9F920000001C /* Sources */,
+				524D3AFC242C9F920000001C /* Frameworks */,
+				524D3AFD242C9F920000001C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				524D3B06242C9F920000001C /* PBXTargetDependency */,
+			);
+			name = ESNetworkManagerTests;
+			productName = ESNetworkManagerTests;
+			productReference = 524D3AFF242C9F920000001C /* ESNetworkManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52496095242C9C9D008BCB4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Mahmoud Eissa";
+				TargetAttributes = {
+					5249609D242C9C9D008BCB4F = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					524D3AFE242C9F920000001C = {
+						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
+					};
+				};
+			};
+			buildConfigurationList = 52496098242C9C9D008BCB4F /* Build configuration list for PBXProject "ESNetworkManager" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52496094242C9C9D008BCB4F;
+			productRefGroup = 5249609F242C9C9D008BCB4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5249609D242C9C9D008BCB4F /* ESNetworkManager */,
+				524D3AFE242C9F920000001C /* ESNetworkManagerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5249609C242C9C9D008BCB4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524D3AFD242C9F920000001C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5CC1D0074160E57F1629248D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ESNetworkManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77853B34F669821474C1E1B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ESNetworkManagerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5249609A242C9C9D008BCB4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524D3AEE242C9E890000001C /* MPFile.swift in Sources */,
+				524D3AF1242C9E890000001C /* JSON.swift in Sources */,
+				524D3AE6242C9E890000001C /* MappableNetworkReponseMapper.swift in Sources */,
+				524D3AEC242C9E890000001C /* RawRepresentableArrayNetworkReponseMapper.swift in Sources */,
+				524D3AE8242C9E890000001C /* MappableArrayNetworkReponseMapper.swift in Sources */,
+				524D3AEB242C9E890000001C /* RawRepresentableNetworkReponseMapper.swift in Sources */,
+				524D3AFA242C9F760000001C /* ESNetworkManager+Rx.swift in Sources */,
+				524D3AE9242C9E890000001C /* ESNetworkResponseMapper.swift in Sources */,
+				524D3AF0242C9E890000001C /* ESNetworkRequest.swift in Sources */,
+				524D3AF3242C9E890000001C /* ESNetworkManagerExtenions.swift in Sources */,
+				524D3AEF242C9E890000001C /* NetworkResponse.swift in Sources */,
+				524D3AF8242C9F710000001C /* ESNetworkManager+Promise.swift in Sources */,
+				524D3AEA242C9E890000001C /* CodableNetworkResponseMapper.swift in Sources */,
+				524D3AF4242C9E890000001C /* ESNetworkManager.swift in Sources */,
+				524D3AF6242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift in Sources */,
+				524D3AF2242C9E890000001C /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524D3AFB242C9F920000001C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524D3B16242CA0560000001C /* ESNetworkResponseMappingTests.swift in Sources */,
+				524D3B12242CA0050000001C /* MockURLProtocol.swift in Sources */,
+				524D3B17242CA0560000001C /* ESNetworkManagerTests.swift in Sources */,
+				524D3B11242CA0050000001C /* MockAPIClient.swift in Sources */,
+				520C62D0242D042B004CE3DC /* Models.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		524D3B06242C9F920000001C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5249609D242C9C9D008BCB4F /* ESNetworkManager */;
+			targetProxy = 524D3B05242C9F920000001C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		524960A4242C9C9D008BCB4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		524960A5242C9C9D008BCB4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		524960A7242C9C9D008BCB4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95B8F4715F2784FEF0CCB348 /* Pods-ESNetworkManager.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ESNetworkManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.agatech.ESNetworkManager;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		524960A8242C9C9D008BCB4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8B75ECC52508AEC865E7325 /* Pods-ESNetworkManager.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ESNetworkManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.agatech.ESNetworkManager;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		524D3B08242C9F920000001C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 271D0A1177502830BA1B0310 /* Pods-ESNetworkManagerTests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ESNetworkManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.agatech.ESNetworkManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		524D3B09242C9F920000001C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9CB4873A965097F83BB91A6 /* Pods-ESNetworkManagerTests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ESNetworkManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.agatech.ESNetworkManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52496098242C9C9D008BCB4F /* Build configuration list for PBXProject "ESNetworkManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524960A4242C9C9D008BCB4F /* Debug */,
+				524960A5242C9C9D008BCB4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		524960A6242C9C9D008BCB4F /* Build configuration list for PBXNativeTarget "ESNetworkManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524960A7242C9C9D008BCB4F /* Debug */,
+				524960A8242C9C9D008BCB4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		524D3B07242C9F920000001C /* Build configuration list for PBXNativeTarget "ESNetworkManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524D3B08242C9F920000001C /* Debug */,
+				524D3B09242C9F920000001C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52496095242C9C9D008BCB4F /* Project object */;
+}
