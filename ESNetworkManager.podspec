@@ -20,7 +20,7 @@ s.subspec 'Core' do |ss|
   end
 
 s.subspec 'Promise' do |ss|
-	ss.dependency 'PromiseKit/CorePromise", '~> 6.8'
+	ss.dependency 'PromiseKit/CorePromise', '~> 6.8'
 end
 s.subspec 'Rx' do |ss|
 	ss.dependency 'RxSwift', '~> 5'
