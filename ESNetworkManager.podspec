@@ -24,16 +24,16 @@ s.subspec 'Core' do |ss|
 	 end
 
 s.subspec 'Promise' do |ss|
-	ss.dependency 'ESNetworkManager/Core', 'PromiseKit/CorePromise', '~> 6.8'
+	ss.dependency 'PromiseKit/CorePromise', '~> 6.8'
 	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Promise/**/*.{swift}"
 	
 	end
 s.subspec 'Rx' do |ss|
 	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Rx/**/*.{swift}"
-	ss.dependency 'ESNetworkManager/Core', 'RxSwift', '~> 5'
+	ss.dependency 'RxSwift', '~> 5'
 	end
 s.subspec 'ObjectMapper' do |ss|
 	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+ObjectMapper/**/*.{swift}"
-	ss.dependency 'ESNetworkManager/Core', 'ObjectMapper', '~> 3.5'
+	ss.dependency 'ObjectMapper', '~> 3.5'
 	end
 end
