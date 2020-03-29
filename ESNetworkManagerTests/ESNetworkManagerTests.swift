@@ -30,6 +30,7 @@ class APIClientTests: XCTestCase {
     }
     
     func testAPIClient_whenSuccess_isSucceded() {
+
         let _expectation = expectation(description: "Test Success")
         MockAPIClient.execute(request: .init(base: "", path: "")) { (resposne: ESNetworkResponse<Any>) in
             XCTAssertNotNil(resposne.value)

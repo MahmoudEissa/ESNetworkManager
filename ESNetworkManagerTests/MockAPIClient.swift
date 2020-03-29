@@ -24,3 +24,15 @@ class MockAPIClient: ESNetworkManager {
     }
 }
 
+class NetworkManager: ESNetworkManager {
+    
+    static let session: Session = {
+        let manager = ServerTrustManager(evaluators: ["serverurl.com": DisabledEvaluator()])
+        let configuration = URLSessionConfiguration.af.default
+        return Session(configuration: configuration, serverTrustManager: manager)
+    }()
+    
+    override class var Manager: Session {
+        return session
+    }
+}

@@ -1,8 +1,8 @@
-<img src="https://github.com/MahmoudEissa/APIClient/blob/master/Chart.png" height="400">
+<img src="https://github.com/MahmoudEissa/ESNetworkManager/blob/master/Chart.png" height="400">
 
 
 
-APIClient is a library that depenent on Alamofire that making new work request easly to made with response mappin.
+ESNetworkManager is a library that depenent on Alamofire that making new work request easly to made with response mappin.
 ## Version Compatibility
 Here is the current Swift compatibility breakdown:
 
@@ -13,8 +13,8 @@ Here is the current Swift compatibility breakdown:
 
 - [Installation](#installation)
 - [Usage](#Usage) 
-  - [Initializing NetworkRequest](#initializing-NetworkRequest)
-  - [Execute Network Request](#APIClient-executes-the-NetworkRequest-with-completion)
+  - [Initializing ESNetworkRequest](#initializing-ESNetworkRequest)
+  - [Execute Network Request](#ESNetworkManager-executes-the-ESNetworkRequest-with-completion)
   - [Uploading MultiPartFile](#Uploading-MultiPartFile)
   - [Download](#Download-file)
   - [Session Manager](#Session-Manager)
@@ -46,7 +46,11 @@ Here is the current Swift compatibility breakdown:
 Add the following to your [Podfile](http://guides.cocoapods.org/using/the-podfile.html):
 
 ```
-pod 'APIClient', :git => 'https://github.com/MahmoudEissa/APIClient.git'
+pod 'ESNetworkManager'
+pod 'ESNetworkManager/Core'
+pod 'ESNetworkManager/Promise'
+pod 'ESNetworkManager/Rx'
+pod 'ESNetworkManager/ObjectMapper'
 ```
 
 You will also need to make sure you're opting into using frameworks:
@@ -60,10 +64,10 @@ Then run `pod install` with CocoaPods 0.36 or newer.
 
 ## Usage
 
-### Initializing NetworkRequest
+### Initializing ESNetworkRequest
 
 ```swift
-let request = NetworkRequest(base: "https://sample.com", path: "api/path")
+let request = ESNetworkRequest(base: "https://sample.com", path: "api/path")
     request.parameter = [:]
     request.headers = [:]
     request.encoding = JSONEncoding.default
@@ -72,46 +76,41 @@ let request = NetworkRequest(base: "https://sample.com", path: "api/path")
     print(request)
 
 ```
-### APIClient executes the NetworkRequest with completion
+### ESNetworkManager executes the ESNetworkRequest with completion
 
 ```swift
-func login(email: String, password: String, completion: @escaping Completion<User>) {
-    let request = NetworkRequest(base: "https://sample.com", path: "api/login")
+func login(email: String, password: String) {
+    let request = ESNetworkRequest(base: "https://sample.com", path: "api/login")
     request.parameter = ["email": email, "password": password]
     request.encoding = JSONEncoding.default
     request.method = .post
-    APIClient.execute(request: request, completion: completion)
-}
-login(email: "email", password: "password") { (response) in
-    guard case .success(let user) = response else {
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<User>) in
+        guard case .success(let user) = response else {
             return
+        }
+        print(user.name)
     }
-    print(user.name)
- }
-
+}
 ```
 
 ### Uploading MultiPartFile
 
 ```swift
-func upload(avatar: UIimage, progress: @escaping ProgressHandler, completion: @escaping Completion<String>) {
+func upload(avatar: UIImage) {
     let data = avatar.jpegData(compressionQuality: 0.5)!
     let file = MPFile(data: data, key: "file", name: "image.jpeg", memType: "image/jpeg")
-    let request = NetworkRequest(base: "https://sample.com", path: "api/upload")
+    let request = ESNetworkRequest(base: "https://sample.com", path: "api/upload")
     request.parameter = [:]
     request.encoding = JSONEncoding.default
     request.method = .post
-    APIClient.upload(files: [file], request: request, progress: progress, completion: completion)
-}
-// Example
-upload(avatar: image, progress: { (fractionCompleted) in
-       
-       print(fractionCompleted)
-   }) { (response) in
-       guard case .success(let imageUrlString) = response else {
-           return
-       }
-       print(imageUrlString)
+    ESNetworkManager.upload(files: [file], request: request, progress: { frationCompleted in
+        print(frationCompleted)
+    }) { (response: ESNetworkResponse<String>) in
+         guard case .success(let imageUrlString) = response else {
+                  return
+              }
+              print(imageUrlString)
+    }
 }
 ```
 
@@ -120,8 +119,8 @@ upload(avatar: image, progress: { (fractionCompleted) in
 ```swift
 
 func downloadFile() {
-    let request = NetworkRequest(base: "https://sample.com", path: "api/file.mp4")
-    APIClient.download(request: request, progress: { (fractionCompleted) in
+    let request = ESNetworkRequest(base: "https://sample.com", path: "api/file.mp4")
+    ESNetworkManager.download(request: request, progress: { (fractionCompleted) in
         print(fractionCompleted)
     }) { (response) in
         guard case .success(let url) = response else {
@@ -137,13 +136,15 @@ func downloadFile() {
 Overriding Session Manager
 
 ```swift
-extension APIClient {
-       static var Manager: SessionManager {
-        let serverTrustPolicies: [String: ServerTrustPolicy] = [:]
-        return Alamofire.SessionManager(
-            configuration: URLSessionConfiguration.default,
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-        )
+class NetworkManager: ESNetworkManager {
+    static let session: Session = {
+        let manager = ServerTrustManager(evaluators: ["serverurl.com": DisabledEvaluator()])
+        let configuration = URLSessionConfiguration.af.default
+        return Session(configuration: configuration, serverTrustManager: manager)
+    }()
+    
+    override class var Manager: Session {
+        return session
     }
 }
 ```
@@ -167,8 +168,8 @@ let json_fail = """
 ```
 Simply override DataResponse Mapping
 ```swift
-extension APIClient {
-    static func map(_ response: DataResponse<Any>) -> NetworkResponse<JSON> {
+class NetworkManager: ESNetworkManager {
+    override class func map(_ response: AFDataResponse<Any>) -> ESNetworkResponse<JSON> {
         if let error = response.error {
             return .failure(error)
         }
@@ -182,6 +183,7 @@ extension APIClient {
         }
     }
 }
+
 // Example For Wrong Email or password
 login(email: "email", password: "password") { (response) in
    guard case .error(let error) = response else {
@@ -189,7 +191,6 @@ login(email: "email", password: "password") { (response) in
    }
    print(error.localizedDescription) // --> Wrong Email or password
    print(error.statusCode) // --> 1002
-
 }
 ```
 
@@ -219,10 +220,10 @@ json.family.0.name.value() // -->  Demo Son
 ```swift
 import PromiseKit
 func login(email: String, password: String) -> Promise<String>{
-    return APIClient.execute(request: request)
+    return ESNetworkManager.execute(request: request)
 }
 func getProfile(token: String) -> Promise<User>{
-    return APIClient.execute(request: request)
+    return ESNetworkManager.execute(request: request)
 }
 // Example
 func login() {
@@ -242,10 +243,10 @@ func login() {
 ```swift
 import RxSwift
  func login(email: String, password: String) -> Single<String>{
-     return APIClient.execute(request: request)
+     return ESNetworkManager.execute(request: request)
  }
  func getProfile(token: String) -> Single<User>{
-     return APIClient.execute(request: request)
+     return ESNetworkManager.execute(request: request)
  }
  
 // Example
@@ -289,56 +290,46 @@ class Model {
 ```
 just set the Request Selections ( key or index ) e.x
 ```swift
-func login(email: String, password: String, completion: @escaping Completion<User>) {
-
+func login(email: String, password: String) {
     request.selection = [.key("content")]
-    APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-login(email: "email", password: "password") { (response) in
-    guard case .success(let user) = response else {
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<User>) in
+        guard case .success(let user) = response else {
             return
+        }
+        print(user.name)
     }
-    print(user.name) // --> Demo User
- }
+}
 ```
 Or
 
 ```swift
-func login(email: String, password: String, completion: @escaping Completion<String>) {
-
+func login(email: String, password: String) {
     request.selection = [.key("content"), .key("token")]
-    APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-login(email: "email", password: "password") { (response) in
-    guard case .success(let token) = response else {
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<String>) in
+        guard case .success(let token) = response else {
             return
+        }
+        print(token) // --> Token
     }
-    print(token) // --> Token
- }
+}
 ```
 Or
 
 ```swift
-func login(email: String, password: String, completion: @escaping Completion<String>) {
-
+func login(email: String, password: String) {
     request.selection = [.key("content"), .key("phones"), .index(0)]
-    APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-login(email: "email", password: "password") { (response) in
-    guard case .success(let phone) = response else {
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<String>) in
+        guard case .success(let phone) = response else {
             return
+        }
+        print(phone) // --> 01000000000
     }
-    print(phone) // --> 01000000000
 }
 ```
 
-## Reposne Mapping Support
+## Resposne Mapping
+
+- Default Mapping implemented for Codable, ObjectMapper and RawRepresentable
 
 - In such case api response 
 
@@ -351,64 +342,64 @@ let dictionary: [String: Any] = ["name": "Demo User",
                                  "phones": ["134234", "532412"],
                                  "adddress": ["title": "Cairo", "latitude": "12.23123", "logintude": "41.12323"],
                                  "family": [["name": "Demo Son", "age": 19, "activated": false]]]
-                                 
-
-                                 
 ```
 
-### Basic types (Dictionary, String, NSNumber, Rawrepresentable, Bool and Array<Base Basic> )
+### Codable
 
-Dictionary
+Codable
 ```swift
-func test(completion: @escaping Completion<[String: Any]>) {
-
-     request.selection = []
-     APIClient.execute(request: request, completion: completion)
+func login(email: String, password: String) {
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<User>) in
+        guard case .success(let user) = response else {
+            return
+        }
+        print(user.name) // --> Demo User
+    }
 }
 
-// Example
-test() { (response) in
-    guard case .success(let json) = response else {
-            return
+class User: Codable {
+    var name = ""
+    var age = ""
+    var activated = false
+    private enum CodingKeys: String, CodingKey {
+        case name, age, activated
     }
-    print(json) // --> dictionary
 }
 ```
-
 String
 ```swift
-func test(completion: @escaping Completion<String>) {
-
-     request.selection = [.key("name")]
-     APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-test() { (response) in
-    guard case .success(let name) = response else {
+func login(email: String, password: String) {
+    request.selection = [.key("name")]
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<String>) in
+        guard case .success(let name) = response else {
             return
+        }
+        print(name) // --> Demo User
     }
-    print(name) // --> Demo User
 }
 ```
 Array
 ```swift
-func test(completion: @escaping Completion<[String]>) {
-
-     request.selection = [.key("phones")]
-     APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-test() { (response) in
-    guard case .success(let phones) = response else {
+func login(email: String, password: String) {
+    request.selection = [.key("phones")]
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<[String]>) in
+        guard case .success(let phones) = response else {
             return
+        }
+        print(phones) // --> ["134234", "532412"]
     }
-    print(json) // --> ["134234", "532412"]
 }
 ```
 ### ObjectMapper
 ```swift
+func login(email: String, password: String) {
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<User>) in
+        guard case .success(let user) = response else {
+            return
+        }
+        print(user.name) // --> Demo User
+    }
+}
 class User: Mappable {
     var name = ""
     var age = ""
@@ -420,142 +411,71 @@ class User: Mappable {
         activated <- "activated"
     }
 }
-func test(completion: @escaping Completion<User>) {
-
-     request.selection = []
-     APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-test() { (response) in
-    guard case .success(let user) = response else {
-            return
-    }
-    print(user.name) // --> Demo User
-}
 ```
 
-### Codabable 
+
+### RawRepresentable 
 ```swift
-class User: Codable {
-    var name = ""
-    var age = ""
-    var activated = false
-    private enum CodingKeys: String, CodingKey {
-        case name, age, activated
-    }
-}
-
-func test(completion: @escaping Completion<User>) {
-
-     request.selection = []
-     APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-test() { (response) in
-    guard case .success(let user) = response else {
+func login(email: String, password: String) {
+    request.selection = [.key("type")]
+    ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<UserType>) in
+        guard case .success(let type) = response else {
             return
+        }
+        print(type) // --> UserType.admin
     }
-    print(user.name) // --> Demo User
 }
+
+enum UserType: Int {
+    case admin = 1
+}
+
 ```
-Decoder can be customized 
-```swift
-class User: Codable {
-    var name = ""
-    var age = ""
-    var activated = false
-    private enum CodingKeys: String, CodingKey {
-        case name, age, activated
-    }
-    // Decoder Overriding
-    static var decoder: JSONDecoder {
-        return JSONDecoder()
-    }
-}
-```
-
-### JSONResponseMappable 
-```swift
-class User: JSONResponseMappable {
-    var name = ""
-    var age = ""
-    var activated = false
-    // Implement JSONResponseMappable Protocol
-    required init(json: JSON) throws {
-        name = json.name.value() ?? ""
-        age = json.age.value() ?? 0
-        activated = json.activated.value() ?? fasle
-    }
-}
-func test(completion: @escaping Completion<User>) {
-
-     request.selection = []
-     APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-test() { (response) in
-    guard case .success(let user) = response else {
-            return
-    }
-    print(user.name) // --> Demo User
-}
-```
-
-### Another Mapping Tool
+### Other Mapping
 
 ```swift
 // Mapping Protocol
 protocol MappingTool {
     init(json: [String: Any])
 }
-// Creating Extenion to Protocol implementation
-extension ResponseMappable where T: MappingTool {
-     static func map(_ response: JSON) throws -> T {
-         guard let json = response.object as? [String: Any]  else {
-             throw NSError.init(error: "Unable to cast \(response) to Dictionary", code: -1)
-         }
-         return T.init(json: json)
-     }
-     static func mapArray(_ response: JSON) throws -> [T] {
-         guard let array = response.object as? [[String: Any]]  else {
-             throw NSError.init(error: "Unable to cast \(response) to Array", code: -1)
-         }
-         return array.map({.init(json: $0)})
-     }
+
+// SubClassing from ESNetworkResponseMapper<T>
+class MappingToolNetworkResponseMapper<T>: ESNetworkResponseMapper<T> where T: MappingTool {
+    override func map(_ response: ESNetworkResponse<JSON>, selections: [Selection]) -> ESNetworkResponse<T> {
+        guard case .success(var value) = response else {
+            return .failure(response.error!)
+        }
+        value = value[selections]
+        guard let json = value.object as? [String: Any] else {
+            return .failure(NSError.init(error: "Unable to get json from \(value)", code: -1))
+            
+        }
+        return .success(T.init(json: json))
+    }
+}
+
+func login(email: String, password: String) {
+    ESNetworkManager.execute(request: request,
+                             mapper: MappingToolNetworkResponseMapper()) { (response: ESNetworkResponse<MUser>) in
+        guard case .success(let user) = response else {
+            return
+        }
+        print(user.name!) // --> Demo User
+    }
 }
 
 // Declare a class
-class User: MappingTool, ResponseMappable {
-    var name = ""
-    var age = ""
-    var activated = false
+class MUser: MappingTool {
+    var name: String?
+    var age: Int?
     required init(json: [String : Any]) {
-        name = json["name"] as? String ?? ""
-        age = json["age"] as? Int ?? 0
-        activated = json["activated"] as? Bool ?? false
+        name = json["name"] as? String
+        age = json["age"] as? Int
     }
-  
-}
-
-func test(completion: @escaping Completion<User>) {
-
-     request.selection = []
-     APIClient.execute(request: request, completion: completion)
-}
-
-// Example
-test() { (response) in
-    guard case .success(let user) = response else {
-            return
-    }
-    print(user.name) // --> Demo User
 }
 
 ```
 
 ## License
 
-APIClient is released under the MIT license. [See LICENSE](https://github.com/MahmoudEissa/APIClient/blob/master/LICENSE) for details.
+ESNetworkManager is released under the MIT license. [See LICENSE](https://github.com/MahmoudEissa/ESNetworkManager/blob/master/LICENSE) for details.
