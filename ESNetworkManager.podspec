@@ -6,7 +6,7 @@ s.name = "ESNetworkManager"
 s.summary = "ESNetworkManager is a library that depenent on Alamofire that making network request easly to made with response Mapping"
 s.requires_arc = true
 s.author = { "Mahmoud Eissa" => "mh.eissa90@gmail.com" }
-s.homepage = "https://github.com/MahmoudEissa/APIClient"
+s.homepage = "https://github.com/MahmoudEissa/ESNetworkManager"
 s.version = "0.1.0"
 s.social_media_url   = "www.linkedin.com/in/mahmoudeissa"
 s.source = { :git => "https://github.com/MahmoudEissa/ESNetworkManager.git", :tag => "#{s.version}"}
