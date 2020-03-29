@@ -27,7 +27,7 @@ Here is the current Swift compatibility breakdown:
   - [Codable](#Codable)
   - [ObjectMapper](#ObjectMapper)
   - [RawRepresentable](#RawRepresentable)
-  - [Other Mapping](#Other Mapping)
+  - [Other Mapping](#Other-Mapping)
 
 
 
