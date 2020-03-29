@@ -24,11 +24,10 @@ Here is the current Swift compatibility breakdown:
   - [RxSwift Extensions](#RxSwift-Extensions)
   - [Request Selections](#Request-Selections)
 - [Reposne Mapping Support](#Reposne-Mapping-Support) 
-  - [Basic types](#Basic-types)
+  - [Codable](#Codable)
   - [ObjectMapper](#ObjectMapper)
-  - [Codabable](#Codabable)
-  - [JSONResponseMappable](#JSONResponseMappable)
-  - [Another Mapping Tool](#Another-Mapping-Tool)
+  - [RawRepresentable](#RawRepresentable)
+  - [Other Mapping](#Other Mapping)
 
 
 
