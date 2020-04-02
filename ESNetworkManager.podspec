@@ -21,7 +21,7 @@ s.default_subspec = "Core"
 
 
 s.subspec 'Core' do |ss|
-	ss.source_files = "ESNetworkManager/Sources/Core/**/*.{swift}"
+	ss.source_files = "ESNetworkManager/Sources/Core/**/*.{swift}", "ESNetworkManager/Sources/Core/Supporting Files/" 
 	ss.dependency 'Alamofire', '~> 5.0'
 	ss.framework  = "Foundation"
 	 end

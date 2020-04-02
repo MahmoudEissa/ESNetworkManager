@@ -103,7 +103,7 @@
 		520C62F8242D2A09004CE3DC /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				52B9EC7B2435D79700CA75A6 /* Supporting Files */,
+				52B9EC7B2435D79700CA75A6 /* Resources */,
 				520C62F9242D2A09004CE3DC /* ESNetworkResponseMapper */,
 				520C62FE242D2A09004CE3DC /* Manager */,
 				520C6301242D2A09004CE3DC /* Helpers */,
@@ -222,12 +222,12 @@
 			path = ESNetworkManagerTests;
 			sourceTree = "<group>";
 		};
-		52B9EC7B2435D79700CA75A6 /* Supporting Files */ = {
+		52B9EC7B2435D79700CA75A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				52B9EC7D2435D79700CA75A6 /* Info.plist */,
 			);
-			path = "Supporting Files";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A3A11643BE1CB3524DC0FDF1 /* Pods */ = {
