@@ -12,6 +12,7 @@ s.social_media_url   = "www.linkedin.com/in/mahmoudeissa"
 s.source = { :git => "https://github.com/MahmoudEissa/ESNetworkManager.git", :tag => "#{s.version}"}
 #s.framework = "Foundation"
 #s.source_files = "ESNetworkManager/**/*.{swift}"
+#s.resources = "ESNetworkManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 s.resources = "ESNetworkManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 s.swift_version = "5.0"
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -20,26 +21,26 @@ s.default_subspec = "Core"
 
 
 s.subspec 'Core' do |ss|
-	ss.dependency 'Alamofire', '~> 5.0'
 	ss.source_files = "ESNetworkManager/Sources/Core/**/*.{swift}"
-	ss.resources = "ESNetworkManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
+	ss.dependency 'Alamofire', '~> 5.0'
 	ss.framework  = "Foundation"
 	 end
 
 s.subspec 'Promise' do |ss|
+	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Promise/**/*.{swift}"
 	ss.dependency 'ESNetworkManager/Core'
 	ss.dependency 'PromiseKit/CorePromise', '~> 6.8'
-	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Promise/**/*.{swift}"
-	
 	end
+
 s.subspec 'Rx' do |ss|
-	ss.dependency 'ESNetworkManager/Core'
 	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Rx/**/*.{swift}"
+	ss.dependency 'ESNetworkManager/Core'
 	ss.dependency 'RxSwift', '~> 5'
 	end
+
 s.subspec 'ObjectMapper' do |ss|
-	ss.dependency 'ESNetworkManager/Core'
 	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+ObjectMapper/**/*.{swift}"
+	ss.dependency 'ESNetworkManager/Core'
 	ss.dependency 'ObjectMapper', '~> 3.5'
 	end
 end
