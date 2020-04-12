@@ -103,7 +103,7 @@
 		520C62F8242D2A09004CE3DC /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				52B9EC7B2435D79700CA75A6 /* Resources */,
+				52B9EC7B2435D79700CA75A6 /* Supporting files */,
 				520C62F9242D2A09004CE3DC /* ESNetworkResponseMapper */,
 				520C62FE242D2A09004CE3DC /* Manager */,
 				520C6301242D2A09004CE3DC /* Helpers */,
@@ -166,7 +166,6 @@
 		524960A0242C9C9D008BCB4F /* ESNetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				52B9EC7C2435D79700CA75A6 /* ESNetworkManager.h */,
 				524D3ACD242C9E280000001C /* Sources */,
 			);
 			path = ESNetworkManager;
@@ -175,6 +174,7 @@
 		524D3ACD242C9E280000001C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				526EC2AB243F5E2500D4A023 /* Supporting files */,
 				520C62F8242D2A09004CE3DC /* Core */,
 				524D3AD1242C9E890000001C /* ESNetworkManager+ObjectMapper */,
 				524D3ADA242C9E890000001C /* ESNetworkManager+Promise */,
@@ -222,12 +222,20 @@
 			path = ESNetworkManagerTests;
 			sourceTree = "<group>";
 		};
-		52B9EC7B2435D79700CA75A6 /* Resources */ = {
+		526EC2AB243F5E2500D4A023 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				52B9EC7C2435D79700CA75A6 /* ESNetworkManager.h */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		52B9EC7B2435D79700CA75A6 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
 				52B9EC7D2435D79700CA75A6 /* Info.plist */,
 			);
-			path = Resources;
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 		A3A11643BE1CB3524DC0FDF1 /* Pods */ = {
