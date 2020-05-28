@@ -9,16 +9,16 @@
 import UIKit
 
 public class MPFile {
-    let data: Data
-    var key = ""
-    var name = ""
+    public let data: Data
+    public var key = ""
+    public var name = ""
     var memType = ""
     
-    init(data: Data) {
+    public init(data: Data) {
         self.data = data
     }
     
-    convenience init(data: Data, key: String,name: String, memType: String ) {
+    public convenience init(data: Data, key: String, name: String, memType: String) {
         self.init(data: data)
         self.name = name
         self.memType = memType
