@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
 s.platform = :ios
 #s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
-s.ios.deployment_target = '12.0'
+s.ios.deployment_target = '11.0'
 s.name = "ESNetworkManager"
 s.summary = "ESNetworkManager is a library that depenent on Alamofire that making network request easly to made with response Mapping"
 s.requires_arc = true
 s.author = { "Mahmoud Eissa" => "mh.eissa90@gmail.com" }
 s.homepage = "https://github.com/MahmoudEissa/ESNetworkManager"
-s.version = "1.2.0"
+s.version = "1.2.1"
 #s.social_media_url   = "https://www.linkedin.com/in/mahmoudeissa"
 s.source = { :git => "https://github.com/MahmoudEissa/ESNetworkManager.git", :tag => "#{s.version}"}
 #s.framework = "Foundation"

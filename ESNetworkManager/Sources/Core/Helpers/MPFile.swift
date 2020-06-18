@@ -12,7 +12,7 @@ public class MPFile {
     public let data: Data
     public var key = ""
     public var name = ""
-    var memType = ""
+    public var memType = ""
     
     public init(data: Data) {
         self.data = data
