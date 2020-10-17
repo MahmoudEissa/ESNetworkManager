@@ -1,13 +1,11 @@
 //
 //  PromiseClient.swift
-//  SMEH_ENG_MVVM
-//
 //  Created by Mahmoud Eissa on 1/13/20.
 //  Copyright © 2020 Mahmoud Eissa. All rights reserved.
 //
 
+import Alamofire
 #if canImport(PromiseKit)
-
 import PromiseKit
 public extension ESNetworkManager {
     
@@ -41,16 +39,33 @@ public extension ESNetworkManager {
     }
     
     static func download(request: ESNetworkRequest,
+                         destination: DownloadRequest.Destination? = nil,
                          progress: @escaping ProgressHandler) -> Promise<URL> {
         return .init { resolver in
-            download(request: request, progress: progress) { (response) in
+            download(request: request, destination: destination, progress: progress) { (response) in
                 switch response {
                 case .success(let value):
                     return resolver.fulfill(value)
                 case .failure(let error):
                     resolver.reject(error)
                 }
-            }}
+            }
+        }
+    }
+    
+    static func resumeDownload(resumingData: Data,
+                         destination: DownloadRequest.Destination? = nil,
+                         progress: @escaping ProgressHandler) -> Promise<URL> {
+        return .init{ resolver in
+            resumeDownload(data: resumingData, destination: destination, progress: progress) { response in
+                switch response {
+                case .success(let value):
+                    return resolver.fulfill(value)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        }
     }
 }
 

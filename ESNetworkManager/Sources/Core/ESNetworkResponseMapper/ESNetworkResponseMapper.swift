@@ -1,7 +1,5 @@
 //
 //  NetworkResponseMapper.swift
-//  SMEH_ENG_MVVM
-//
 //  Created by Mahmoud Eissa on 1/19/20.
 //  Copyright © 2020 Mahmoud Eissa. All rights reserved.
 //

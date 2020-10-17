@@ -1,6 +1,5 @@
 //
 //  JSON.swift
-//  JSON
 
 import Foundation
 
@@ -15,7 +14,6 @@ public enum JSON {
     case null
 
     // MARK: Dynamic Member Lookup
-    
     public subscript(dynamicMember member: String) -> JSON {
         if case .dictionary = self {
             return self[member]

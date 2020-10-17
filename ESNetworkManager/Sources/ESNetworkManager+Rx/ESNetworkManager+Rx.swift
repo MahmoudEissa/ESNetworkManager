@@ -1,14 +1,11 @@
 //
 //  RxClient.swift
-//  SMEH_ENG_MVVM
-//
 //  Created by Mahmoud Eissa on 1/13/20.
 //  Copyright © 2020 Mahmoud Eissa. All rights reserved.
 //
 
-
+import Alamofire
 #if canImport(RxSwift)
-
 import RxSwift
 public extension ESNetworkManager {
     static func execute<T>(request: ESNetworkRequest,
@@ -43,12 +40,30 @@ public extension ESNetworkManager {
         }
     }
     
-    static func download(request: ESNetworkRequest, progress: @escaping ProgressHandler) -> Single<URL> {
+    static func download(request: ESNetworkRequest,
+                         destination: DownloadRequest.Destination? = nil,
+                         progress: @escaping ProgressHandler) -> Single<URL> {
         return .create { observer in
-            download(request: request, progress: progress) { (response) in
+            download(request: request, destination: destination, progress: progress) { (response) in
                 switch response {
                 case .success(let url):
                     observer(.success(url))
+                case .failure(let error):
+                    observer(.error(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
+    static func resumeDownload(resumingData: Data,
+                               destination: DownloadRequest.Destination? = nil,
+                               progress: @escaping ProgressHandler) -> Single<URL> {
+        return .create { observer in
+            resumeDownload(data: resumingData, destination: destination, progress: progress) { response in
+                switch response {
+                case .success(let url):
+                    return observer(.success(url))
                 case .failure(let error):
                     observer(.error(error))
                 }

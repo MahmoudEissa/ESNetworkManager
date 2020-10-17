@@ -99,7 +99,6 @@ internal extension ESNetworkManager {
                                destination: DownloadRequest.Destination?,
                                progress: @escaping ProgressHandler,
                                completion: @escaping Completion<URL>) -> DownloadRequest {
-        let destination = destination ?? DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
         return Manager.download(resumingWith: resumingData, to: destination).downloadProgress(closure: { (prog) in
             progress(prog.fractionCompleted)
         }).response(completionHandler: { (DefaultDownloadResponse) in
