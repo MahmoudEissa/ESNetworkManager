@@ -4,7 +4,7 @@
 
 import Alamofire
 
-public typealias ProgressHandler = (_ fractionCompleted: Progress) -> Void
+public typealias ProgressHandler = (_ progress: Progress) -> Void
 public typealias Completion<T> = (_ response: ESNetworkResponse<T>) -> Void
 
 open class ESNetworkManager {
