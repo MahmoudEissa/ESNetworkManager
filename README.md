@@ -67,7 +67,7 @@ Then run `pod install` with CocoaPods 0.36 or newer.
 
 ```swift
 let request = ESNetworkRequest(base: "https://sample.com", path: "api/path")
-    request.parameter = [:]
+    request.parameters = [:]
     request.headers = [:]
     request.encoding = JSONEncoding.default
     request.method = .post
@@ -80,7 +80,7 @@ let request = ESNetworkRequest(base: "https://sample.com", path: "api/path")
 ```swift
 func login(email: String, password: String) {
     let request = ESNetworkRequest(base: "https://sample.com", path: "api/login")
-    request.parameter = ["email": email, "password": password]
+    request.parameters = ["email": email, "password": password]
     request.encoding = JSONEncoding.default
     request.method = .post
     ESNetworkManager.execute(request: request) { (response: ESNetworkResponse<User>) in
@@ -99,11 +99,11 @@ func upload(avatar: UIImage) {
     let data = avatar.jpegData(compressionQuality: 0.5)!
     let file = MPFile(data: data, key: "file", name: "image.jpeg", memType: "image/jpeg")
     let request = ESNetworkRequest(base: "https://sample.com", path: "api/upload")
-    request.parameter = [:]
+    request.parameters = [:]
     request.encoding = JSONEncoding.default
     request.method = .post
-    ESNetworkManager.upload(files: [file], request: request, progress: { frationCompleted in
-        print(frationCompleted)
+    ESNetworkManager.upload(data: .multipart([file]), request: request, progress: { progress in
+        print(progress.frationCompleted)
     }) { (response: ESNetworkResponse<String>) in
          guard case .success(let imageUrlString) = response else {
                   return
@@ -119,8 +119,8 @@ func upload(avatar: UIImage) {
 
 func downloadFile() {
     let request = ESNetworkRequest(base: "https://sample.com", path: "api/file.mp4")
-    ESNetworkManager.download(request: request, progress: { (fractionCompleted) in
-        print(fractionCompleted)
+    ESNetworkManager.download(request: request, progress: { (progress) in
+        print(progress.fractionCompleted)
     }) { (response) in
         guard case .success(let url) = response else {
             return
