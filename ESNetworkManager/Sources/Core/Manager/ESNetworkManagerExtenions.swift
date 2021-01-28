@@ -20,12 +20,12 @@ public extension ESNetworkManager  {
      }
     
      @discardableResult
-     static func upload<T>(files: [MPFile],
+     static func upload<T>(data: ESUploadData,
                            request: ESNetworkRequest,
                            mapper: ESNetworkResponseMapper<T> = ESNetworkResponseMapper(),
                            progress: @escaping ProgressHandler,
                            completion: @escaping Completion<T>) -> UploadRequest? {
-        return  startUpload(files: files, request: request, progress: progress) { (response) in
+        return  startUpload(data: data, request: request, progress: progress) { (response) in
              completion(mapper.map(response, selections: request.selections))
          }
      }
@@ -55,11 +55,11 @@ public extension ESNetworkManager {
     }
     
     @discardableResult
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                            request: ESNetworkRequest,
                            progress: @escaping ProgressHandler,
                            completion: @escaping Completion<T>) -> UploadRequest? where T: Codable {
-       return upload(files: files, request: request, mapper: CodableNetworkResponseMapper(), progress: progress, completion: completion)
+       return upload(data: data, request: request, mapper: CodableNetworkResponseMapper(), progress: progress, completion: completion)
      }
     
     @discardableResult
@@ -76,18 +76,18 @@ public extension ESNetworkManager {
     }
     
     @discardableResult
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler,
                           completion: @escaping Completion<T>) -> UploadRequest? where T: RawRepresentable {
-       return upload(files: files, request: request, mapper: RawRepresentableNetworkReponseMapper(), progress: progress, completion: completion)
+       return upload(data: data, request: request, mapper: RawRepresentableNetworkReponseMapper(), progress: progress, completion: completion)
     }
     
     @discardableResult
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler,
                           completion: @escaping Completion<T>) -> UploadRequest? where T: Sequence, T.Element: RawRepresentable {
-      return upload(files: files, request: request, mapper: RawRepresentableArrayNetworkReponseMapper(), progress: progress, completion: completion)
+      return upload(data: data, request: request, mapper: RawRepresentableArrayNetworkReponseMapper(), progress: progress, completion: completion)
     }
 }

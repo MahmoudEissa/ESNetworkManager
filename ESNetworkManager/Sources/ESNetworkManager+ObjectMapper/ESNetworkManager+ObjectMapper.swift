@@ -24,18 +24,18 @@ public extension ESNetworkManager {
         
     }
     
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler,
                           completion: @escaping Completion<T>) where T: Mappable {
-        upload(files: files, request: request, mapper: MappableNetworkReponseMapper(), progress: progress, completion: completion)
+        upload(data: data, request: request, mapper: MappableNetworkReponseMapper(), progress: progress, completion: completion)
     }
     
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler,
                           completion: @escaping Completion<T>) where T: Sequence, T.Element: Mappable {
-        upload(files: files, request: request, mapper: MappableArrayNetworkReponseMapper(), progress: progress, completion: completion)
+        upload(data: data, request: request, mapper: MappableArrayNetworkReponseMapper(), progress: progress, completion: completion)
     }
 }
 
@@ -46,20 +46,20 @@ public extension ESNetworkManager {
         return execute(request: request, mapper: MappableNetworkReponseMapper())
     }
     
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Promise<T> where T: Mappable {
-        return upload(files: files, request: request, mapper: MappableNetworkReponseMapper<T>() ,progress: progress)
+        return upload(data: data, request: request, mapper: MappableNetworkReponseMapper<T>() ,progress: progress)
     }
     
     static func execute<T>(request: ESNetworkRequest) -> Promise<T> where T: Sequence, T.Element: Mappable {
         return execute(request: request, mapper: MappableArrayNetworkReponseMapper())
     }
     
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Promise<T> where T: Sequence, T.Element: Mappable {
-        return upload(files: files, request: request, mapper: MappableArrayNetworkReponseMapper() ,progress: progress)
+        return upload(data: data, request: request, mapper: MappableArrayNetworkReponseMapper() ,progress: progress)
     }
 }
 #endif
@@ -71,20 +71,20 @@ public extension ESNetworkManager {
         return execute(request: request, mapper: MappableNetworkReponseMapper())
     }
     
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Single<T> where T: Mappable {
-        return upload(files: files, request: request, mapper: MappableNetworkReponseMapper<T>() ,progress: progress)
+        return upload(data: data, request: request, mapper: MappableNetworkReponseMapper<T>() ,progress: progress)
     }
     
     static func execute<T>(request: ESNetworkRequest) -> Single<T> where T: Sequence, T.Element: Mappable {
         return execute(request: request, mapper: MappableArrayNetworkReponseMapper())
     }
     
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Single<T> where T: Sequence, T.Element: Mappable {
-        return upload(files: files, request: request, mapper: MappableArrayNetworkReponseMapper() ,progress: progress)
+        return upload(data: data, request: request, mapper: MappableArrayNetworkReponseMapper() ,progress: progress)
     }
 }
 #endif

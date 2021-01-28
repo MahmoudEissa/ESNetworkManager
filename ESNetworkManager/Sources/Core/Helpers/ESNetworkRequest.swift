@@ -16,7 +16,7 @@ public class ESNetworkRequest {
     public var path = ""
     public var method = HTTPMethod.get
     public var headers: [String: String]?
-    public var parameter: [String: Any]?
+    public var parameters: [String: Any]?
     public var encoding: ParameterEncoding = URLEncoding.default
     public var selections: [Selection] = []
  
@@ -24,13 +24,13 @@ public class ESNetworkRequest {
          path: String,
          method: HTTPMethod = .get,
          headers: [String: String]? = nil,
-         parameter: [String: Any]? = nil,
+         parameters: [String: Any]? = nil,
          encoding: ParameterEncoding = URLEncoding.default ) {
         self.base = base
         self.path = path
         self.method = method
         self.headers = headers
-        self.parameter = parameter
+        self.parameters = parameters
         self.encoding = encoding
     }
 }
@@ -46,8 +46,8 @@ extension ESNetworkRequest: CustomStringConvertible {
         if let headers = headers {
             temp.append("Headers: \(headers.jsonString() ?? "{}")\n")
         }
-        if let parameter = parameter {
-            temp.append("Body: \(parameter.jsonString() ?? "{}")\n")
+        if let parameters = parameters {
+            temp.append("Body: \(parameters.jsonString() ?? "{}")\n")
         }
         temp.append("--------------------------------------------------")
         return temp

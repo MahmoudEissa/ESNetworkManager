@@ -4,7 +4,7 @@
 
 import Alamofire
 
-public typealias ProgressHandler = (_ fractionCompleted: Double) -> Void
+public typealias ProgressHandler = (_ fractionCompleted: Progress) -> Void
 public typealias Completion<T> = (_ response: ESNetworkResponse<T>) -> Void
 
 open class ESNetworkManager {
@@ -32,7 +32,7 @@ internal extension ESNetworkManager {
         print(request)
         return  Manager.request(url,
                                 method: request.method,
-                                parameters: request.parameter,
+                                parameters: request.parameters,
                                 encoding: request.encoding,
                                 headers: .init(request.headers ?? [:])).responseJSON { (response) in
                                     completion(map(response))
@@ -40,34 +40,68 @@ internal extension ESNetworkManager {
     }
 }
 // MARK: - Upload
+public enum ESUploadData {
+    case date(Data)
+    case stream(InputStream)
+    case multipart([MPFile])
+}
+
 internal extension ESNetworkManager {
-    static func startUpload(files: [MPFile],
+    static func startUpload(data: ESUploadData,
                             request: ESNetworkRequest,
                             progress: @escaping ProgressHandler,
                             completion: @escaping Completion<JSON>) -> UploadRequest?{
-        guard let url = URL(string: request.fullPath) else {
+        guard URL(string: request.fullPath) != nil else {
             completion(.failure(NSError.init(error: "Invalid Url: \(request.path)", code: -1)))
             return nil
         }
         print(request)
-       return Manager.upload(multipartFormData: { (multipartFormData) in
+        let task: UploadRequest?
+        switch data {
+        case .date(let data):
+            task = upload(data, request: request)
             
+        case .stream(let stream):
+            task = upload(stream, request: request)
+            
+        case .multipart(let files):
+            task = upload(files, request: request)
+        }
+        return task?.responseJSON { completion(map($0)) }.uploadProgress { progress($0) }
+    }
+    
+    private static func upload(_ data: Data, request: ESNetworkRequest) -> UploadRequest?{
+        return Manager.upload(data,
+                              to: URL(string: request.fullPath)!,
+                              method: request.method,
+                              headers: .init(request.headers ?? [:]))
+    }
+    
+    private static func upload(_ stream: InputStream, request: ESNetworkRequest) -> UploadRequest?{
+        return Manager.upload(stream,
+                              to: URL(string: request.fullPath)!,
+                              method: request.method,
+                              headers: .init(request.headers ?? [:]))
+    }
+    
+    private static func upload(_ files: [MPFile], request: ESNetworkRequest) -> UploadRequest?{
+        return Manager.upload(multipartFormData: { (multipartFormData) in
             for file in files {
                 multipartFormData.append(file.data, withName: file.key, fileName: file.name, mimeType: file.memType)
             }
-            if let dic = request.parameter {
+            if let dic = request.parameters {
                 for (key, value) in dic {
                     multipartFormData.append(String(describing: value).data(using: String.Encoding.utf8)!, withName: key)
                 }
             }
-            
-        }, to: url, method: request.method, headers: .init(request.headers ?? [:]) ).responseJSON { (response) in
-            completion(map(response))
-        }.uploadProgress { (prog) in
-            progress(prog.fractionCompleted)
-        }
+        },
+        to: URL(string: request.fullPath)!,
+        method: request.method,
+        headers: .init(request.headers ?? [:]) )
     }
+    
 }
+
 // MARK: - Download
 internal extension ESNetworkManager {
     static func startDownload(request: ESNetworkRequest,
@@ -79,11 +113,11 @@ internal extension ESNetworkManager {
         return Manager.download(
             request.fullPath,
             method: request.method,
-            parameters: request.parameter,
+            parameters: request.parameters,
             encoding: request.encoding,
             headers: .init(request.headers ?? [:]) ,
             to: destination).downloadProgress(closure: { (prog) in
-                progress(prog.fractionCompleted)
+                progress(prog)
             }).response(completionHandler: { (DefaultDownloadResponse) in
                 if let url = DefaultDownloadResponse.fileURL {
                     completion(.success(url))
@@ -100,7 +134,7 @@ internal extension ESNetworkManager {
                                progress: @escaping ProgressHandler,
                                completion: @escaping Completion<URL>) -> DownloadRequest {
         return Manager.download(resumingWith: resumingData, to: destination).downloadProgress(closure: { (prog) in
-            progress(prog.fractionCompleted)
+            progress(prog)
         }).response(completionHandler: { (DefaultDownloadResponse) in
             if let url = DefaultDownloadResponse.fileURL {
                 completion(.success(url))
@@ -112,3 +146,4 @@ internal extension ESNetworkManager {
         })
     }
 }
+

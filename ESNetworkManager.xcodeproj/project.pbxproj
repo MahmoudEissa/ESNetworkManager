@@ -125,8 +125,8 @@
 		520C62FE242D2A09004CE3DC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				520C62FF242D2A09004CE3DC /* ESNetworkManagerExtenions.swift */,
 				520C6300242D2A09004CE3DC /* ESNetworkManager.swift */,
+				520C62FF242D2A09004CE3DC /* ESNetworkManagerExtenions.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";

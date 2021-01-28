@@ -23,12 +23,12 @@ public extension ESNetworkManager {
         }
     }
     
-    static func upload<T>(files: [MPFile] ,
+    static func upload<T>(data: ESUploadData ,
                           request: ESNetworkRequest,
                           mapper: ESNetworkResponseMapper<T> = ESNetworkResponseMapper(),
                           progress: @escaping ProgressHandler) -> Promise<T> {
         return .init{ resolver in
-            upload(files: files, request: request, mapper: mapper, progress: progress) { (response: ESNetworkResponse<T>) in
+            upload(data: data, request: request, mapper: mapper, progress: progress) { (response: ESNetworkResponse<T>) in
                 switch response {
                 case .success(let value):
                     return resolver.fulfill(value)
@@ -75,20 +75,20 @@ public extension ESNetworkManager {
         return execute(request: request, mapper: CodableNetworkResponseMapper())
     }
     
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Promise<T> where T: Codable {
-        return upload(files: files, request: request, mapper: CodableNetworkResponseMapper<T>() ,progress: progress)
+        return upload(data: data, request: request, mapper: CodableNetworkResponseMapper<T>() ,progress: progress)
     }
     
     static func execute<T>(request: ESNetworkRequest) -> Promise<T> where T: RawRepresentable {
         return execute(request: request, mapper: RawRepresentableNetworkReponseMapper())
     }
     
-    static func upload<T>(files: [MPFile],
+    static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Promise<T> where T: RawRepresentable {
-        return upload(files: files, request: request, mapper: RawRepresentableNetworkReponseMapper() ,progress: progress)
+        return upload(data: data, request: request, mapper: RawRepresentableNetworkReponseMapper() ,progress: progress)
     }
 }
 #endif
