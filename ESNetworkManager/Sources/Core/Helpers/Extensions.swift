@@ -17,7 +17,7 @@ public extension NSError {
 public extension Error {
     var statusCode: Int {
         if let error = self as? AFError {
-            return error.statusCode
+            return error.responseCode ?? 0
         }
         return (self as NSError).code
     }
