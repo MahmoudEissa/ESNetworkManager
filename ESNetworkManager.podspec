@@ -7,7 +7,7 @@ s.summary = "ESNetworkManager is a library that depenent on Alamofire that makin
 s.requires_arc = true
 s.author = { "Mahmoud Eissa" => "mh.eissa90@gmail.com" }
 s.homepage = "https://github.com/MahmoudEissa/ESNetworkManager"
-s.version = "1.2.5"
+s.version = "1.2.6"
 #s.social_media_url   = "https://www.linkedin.com/in/mahmoudeissa"
 s.source = { :git => "https://github.com/MahmoudEissa/ESNetworkManager.git", :tag => "#{s.version}"}
 #s.framework = "Foundation"
