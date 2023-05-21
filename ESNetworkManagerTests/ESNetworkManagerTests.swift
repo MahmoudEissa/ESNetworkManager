@@ -7,45 +7,115 @@
 //
 
 import XCTest
-import ESNetworkManager
+@testable import ESNetworkManager
 
-class APIClientTests: XCTestCase {
-    private let dictionary: [String: Any] = ["name": "Demo User",
-                                       "age": 41,
-                                       "type": "Admin",
-                                       "roles": ["Admin"],
-                                       "verified": 0,
-                                       "activated": true,
-                                       "phones": ["134234", "532412"],
-                                       "adddress": ["title": "Cairo", "latitude": "12.23123", "logintude": "41.12323"],
-                                       "family": [["name": "Demo Son", "age": 19, "activated": false]]]
-    
-    private var data: Data {
-        return try! JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
-    }
+class ESNetworkManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        MockURLProtocol.responseWithStatusCode(code: 200, data: data)
     }
     
-    func testAPIClient_whenSuccess_isSucceded() {
+    func testESNetworkManager_whenDataRequest_whenSuccess_isSucceded() {
+        
+        MockURLProtocol.responseType = .success(data: Data.mock)
 
-        let _expectation = expectation(description: "Test Success")
-        MockAPIClient.execute(request: .init(base: "", path: "")) { (resposne: ESNetworkResponse<Any>) in
-            XCTAssertNotNil(resposne.value)
-            _expectation.fulfill()
+        let expectation = expectation(description: "test data request")
+        let request = ESNetworkRequest(url: "http://any.com")
+        
+        NetworkManager.execute(request: request) { (resposne: ESNetworkResponse<JSON>) in
+            guard case .success(let resposne) = resposne else {
+                return XCTFail()
+            }
+            print(resposne.description)
+            XCTAssertEqual(resposne.squadName.value(), "Super hero squad")
+            expectation.fulfill()
         }
-        waitForExpectations(timeout: 5) {_ in}
+        waitForExpectations(timeout: 4)
     }
     
-    func testAPIClient_whenFail_isFailed() {
-        MockURLProtocol.responseWithFailure(error: MockURLProtocol.MockError.testError)
-         let _expectation = expectation(description: "Test Success")
-         MockAPIClient.execute(request: .init(base: "", path: "")) { (resposne: ESNetworkResponse<Any>) in
-             XCTAssertNotNil(resposne.error)
-             _expectation.fulfill()
-         }
-         waitForExpectations(timeout: 5) {_ in}
-     }
+    func testESNetworkManager_whenUploadRequest_whenSuccess_isSucceded() {
+        
+        MockURLProtocol.responseType = .success(data: Data.mock)
+
+        let expectation = expectation(description: "test upload request")
+        let request = ESNetworkRequest(url: "http://any.com")
+        
+        NetworkManager.upload(data: .multipart([]), request: request, progress: { _ in
+            
+        }, completion: { (resposne: ESNetworkResponse<JSON>) in
+            guard case .success(let resposne) = resposne else {
+                return XCTFail()
+            }
+            XCTAssertEqual(resposne.squadName.value(), "Super hero squad")
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 4)
+    }
+
+    
+    func testESNetworkManager_whenDownloadRequest_whenSuccess_isSucceded() {
+        
+        MockURLProtocol.responseType = .success(data: Data.mock)
+
+        let expectation = expectation(description: "test download request")
+        let request = ESNetworkRequest(url: "http://any.com")
+        
+        NetworkManager.download(request: request, progress: { _ in
+            
+        }, completion: { resposne in
+            guard case .success(let url) = resposne else {
+                return XCTFail()
+            }
+            let json = JSON(try? Data.init(contentsOf: url))
+            XCTAssertEqual(json.squadName.value(), "Super hero squad")
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 4)
+    }
+        
+    func testESNetworkManager_whenDataRequest_whenError_isFailed() {
+        
+        MockURLProtocol.responseType = .error(NSError(domain: "failure", code: 400))
+
+        let expectation = expectation(description: "test data request")
+        let request = ESNetworkRequest(url: "http://any.com")
+        
+        NetworkManager.execute(request: request) { (resposne: ESNetworkResponse<JSON>) in
+            XCTAssertNotNil(resposne.error)
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 4)
+    }
+    
+    func testESNetworkManager_whenUploadRequest_whenError_isFailed() {
+        
+        MockURLProtocol.responseType = .error(NSError(domain: "failure", code: 400))
+
+        let expectation = expectation(description: "test upload request")
+        let request = ESNetworkRequest(url: "http://any.com")
+        
+        NetworkManager.upload(data: .multipart([]), request: request, progress: { _ in
+            
+        }, completion: { (resposne: ESNetworkResponse<JSON>) in
+            XCTAssertNotNil(resposne.error)
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 4)
+    }
+    
+    func testESNetworkManager_whenDownloadRequest_whenError_isFailed() {
+        
+        MockURLProtocol.responseType = .error(NSError(domain: "failure", code: 400))
+
+        let expectation = expectation(description: "test download request")
+        let request = ESNetworkRequest(url: "http://any.com")
+        
+        NetworkManager.download(request: request, progress: { _ in
+            
+        }, completion: { resposne in
+            XCTAssertNotNil(resposne.error)
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 4)
+    }
 }

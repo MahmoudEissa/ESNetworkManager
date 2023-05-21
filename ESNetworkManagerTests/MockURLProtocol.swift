@@ -31,7 +31,7 @@ final class MockURLProtocol: URLProtocol {
     
     override func startLoading() {
         activeTask = session.dataTask(with: request.urlRequest!)
-        activeTask?.cancel() // We don’t want to make a network request, we want to return our stubbed data ASAP
+        activeTask?.cancel()
     }
     
     override func stopLoading() {
@@ -49,9 +49,12 @@ extension MockURLProtocol: URLSessionDataDelegate {
         switch MockURLProtocol.responseType {
         case .error(let error)?:
             client?.urlProtocol(self, didFailWithError: error)
-        case .success(let response)?:
-            client?.urlProtocol(self, didLoad: response.data)
-            client?.urlProtocol(self, didReceive: response.response, cacheStoragePolicy: .notAllowed)
+        case .success(let data)?:
+            let response = HTTPURLResponse(url: URL(string: "http://any.com")!,
+                                           statusCode: 200,
+                                           httpVersion: nil, headerFields: nil)!
+            client?.urlProtocol(self, didLoad: data)
+            client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
         default:
             break
         }
@@ -62,21 +65,10 @@ extension MockURLProtocol {
     static func responseWithFailure(error: Error) {
         MockURLProtocol.responseType = .error(error)
     }
-    
-    static func responseWithStatusCode(code: Int, data: Data) {
-        let response = HTTPURLResponse(url: URL(string: "http://any.com")!,
-                                       statusCode: code,
-                                       httpVersion: nil, headerFields: nil)!
-        MockURLProtocol.responseType = MockURLProtocol.ResponseType.success(response: response, data: data)
-    }
 }
 extension MockURLProtocol {
     enum ResponseType {
         case error(Error)
-        case success(response: HTTPURLResponse, data: Data)
-    }
-    enum MockError: Error {
-        case none
-        case testError
+        case success(data: Data)
     }
 }

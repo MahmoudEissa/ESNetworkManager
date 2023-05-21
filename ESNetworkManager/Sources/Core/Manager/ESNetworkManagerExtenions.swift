@@ -64,15 +64,15 @@ public extension ESNetworkManager {
     
     @discardableResult
     static func execute<T>(request: ESNetworkRequest,
-                           completion: @escaping Completion<T>) -> DataRequest? where T: RawRepresentable {
-        return execute(request: request, mapper: RawRepresentableNetworkReponseMapper(), completion: completion)
+                           completion: @escaping Completion<T>) -> DataRequest? where T: Sequence, T.Element: RawRepresentable {
+        return execute(request: request, mapper: RawRepresentableArrayNetworkReponseMapper(), completion: completion)
+        
     }
     
     @discardableResult
     static func execute<T>(request: ESNetworkRequest,
-                           completion: @escaping Completion<T>) -> DataRequest? where T: Sequence, T.Element: RawRepresentable {
-        return execute(request: request, mapper: RawRepresentableArrayNetworkReponseMapper(), completion: completion)
-        
+                           completion: @escaping Completion<T>) -> DataRequest? where T: RawRepresentable {
+        return execute(request: request, mapper: RawRepresentableNetworkReponseMapper(), completion: completion)
     }
     
     @discardableResult

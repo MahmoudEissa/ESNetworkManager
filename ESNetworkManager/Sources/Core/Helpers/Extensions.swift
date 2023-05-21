@@ -14,6 +14,7 @@ public extension NSError {
         self.init(domain: error, code: code, userInfo: userInfo)
     }
 }
+
 public extension Error {
     var statusCode: Int {
         if let error = self as? AFError {
@@ -22,6 +23,7 @@ public extension Error {
         return (self as NSError).code
     }
 }
+
 public extension Dictionary{
     static func +(lhs: Dictionary, rhs: Dictionary) -> Dictionary{
         var final = lhs
@@ -30,13 +32,15 @@ public extension Dictionary{
         }
         return final
     }
+    
     static func +=(_ lhs: inout Dictionary, rhs: Dictionary) {
         lhs = lhs + rhs
     }
+    
     func jsonString() -> String? {
         guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted) else {
             return .none
         }
-        return String.init(data: jsonData, encoding: .ascii)
+        return String.init(data: jsonData, encoding: .utf8)
     }
 }

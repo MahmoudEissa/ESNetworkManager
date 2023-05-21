@@ -16,7 +16,7 @@ public extension ESNetworkManager {
                 case .success(let value):
                     observer(.success(value))
                 case .failure(let error):
-                    observer(.error(error))
+                    observer(.failure(error))
                 }
             }
             return Disposables.create()
@@ -33,7 +33,7 @@ public extension ESNetworkManager {
                 case .success(let value):
                     observer(.success(value))
                 case .failure(let error):
-                    observer(.error(error))
+                    observer(.failure(error))
                 }
             }
             return Disposables.create()
@@ -49,7 +49,7 @@ public extension ESNetworkManager {
                 case .success(let url):
                     observer(.success(url))
                 case .failure(let error):
-                    observer(.error(error))
+                    observer(.failure(error))
                 }
             }
             return Disposables.create()
@@ -65,7 +65,7 @@ public extension ESNetworkManager {
                 case .success(let url):
                     return observer(.success(url))
                 case .failure(let error):
-                    observer(.error(error))
+                    observer(.failure(error))
                 }
             }
             return Disposables.create()
@@ -78,6 +78,14 @@ public extension ESNetworkManager {
     static func execute<T>(request: ESNetworkRequest) -> Single<T> where T: Codable {
         return execute(request: request, mapper: CodableNetworkResponseMapper())
     }
+        
+    static func execute<T>(request: ESNetworkRequest) -> Single<T> where T: RawRepresentable {
+        return execute(request: request, mapper: RawRepresentableNetworkReponseMapper())
+    }
+    
+    static func execute<T>(request: ESNetworkRequest) -> Single<T> where T: Sequence, T.Element: RawRepresentable {
+        return execute(request: request, mapper: RawRepresentableArrayNetworkReponseMapper())
+    }
     
     static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
@@ -85,14 +93,16 @@ public extension ESNetworkManager {
         return upload(data: data, request: request, mapper: CodableNetworkResponseMapper() ,progress: progress)
     }
     
-    static func execute<T>(request: ESNetworkRequest) -> Single<T> where T: RawRepresentable {
-        return execute(request: request, mapper: RawRepresentableNetworkReponseMapper())
-    }
-    
     static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Single<T> where T: RawRepresentable {
         return upload(data: data, request: request, mapper: RawRepresentableNetworkReponseMapper() ,progress: progress)
+    }
+    
+    static func upload<T>(data: ESUploadData,
+                          request: ESNetworkRequest,
+                          progress: @escaping ProgressHandler) -> Single<T> where T: Sequence, T.Element: RawRepresentable {
+        return upload(data: data, request: request, mapper: RawRepresentableArrayNetworkReponseMapper() ,progress: progress)
     }
 }
 #endif

@@ -17,7 +17,7 @@ public extension ESNetworkManager {
                 case .success(let value):
                     return resolver.fulfill(value)
                 case .failure(let error):
-                    resolver.reject(error)
+                    return resolver.reject(error)
                 }
             }
         }
@@ -33,9 +33,10 @@ public extension ESNetworkManager {
                 case .success(let value):
                     return resolver.fulfill(value)
                 case .failure(let error):
-                    resolver.reject(error)
+                    return resolver.reject(error)
                 }
-            }}
+            }
+        }
     }
     
     static func download(request: ESNetworkRequest,
@@ -47,7 +48,7 @@ public extension ESNetworkManager {
                 case .success(let value):
                     return resolver.fulfill(value)
                 case .failure(let error):
-                    resolver.reject(error)
+                    return resolver.reject(error)
                 }
             }
         }
@@ -62,7 +63,7 @@ public extension ESNetworkManager {
                 case .success(let value):
                     return resolver.fulfill(value)
                 case .failure(let error):
-                    resolver.reject(error)
+                    return resolver.reject(error)
                 }
             }
         }
@@ -75,20 +76,30 @@ public extension ESNetworkManager {
         return execute(request: request, mapper: CodableNetworkResponseMapper())
     }
     
+    static func execute<T>(request: ESNetworkRequest) -> Promise<T> where T: RawRepresentable {
+        return execute(request: request, mapper: RawRepresentableNetworkReponseMapper())
+    }
+    
+    static func execute<T>(request: ESNetworkRequest) -> Promise<T> where T: Sequence, T.Element: RawRepresentable {
+        return execute(request: request, mapper: RawRepresentableArrayNetworkReponseMapper())
+    }
+    
     static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Promise<T> where T: Codable {
         return upload(data: data, request: request, mapper: CodableNetworkResponseMapper<T>() ,progress: progress)
     }
     
-    static func execute<T>(request: ESNetworkRequest) -> Promise<T> where T: RawRepresentable {
-        return execute(request: request, mapper: RawRepresentableNetworkReponseMapper())
-    }
-    
     static func upload<T>(data: ESUploadData,
                           request: ESNetworkRequest,
                           progress: @escaping ProgressHandler) -> Promise<T> where T: RawRepresentable {
         return upload(data: data, request: request, mapper: RawRepresentableNetworkReponseMapper() ,progress: progress)
+    }
+    
+    static func upload<T>(data: ESUploadData,
+                          request: ESNetworkRequest,
+                          progress: @escaping ProgressHandler) -> Promise<T> where T: Sequence, T.Element: RawRepresentable {
+        return upload(data: data, request: request, mapper: RawRepresentableArrayNetworkReponseMapper() ,progress: progress)
     }
 }
 #endif

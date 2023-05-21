@@ -7,7 +7,7 @@ s.summary = "ESNetworkManager is a library that depenent on Alamofire that makin
 s.requires_arc = true
 s.author = { "Mahmoud Eissa" => "mh.eissa90@gmail.com" }
 s.homepage = "https://github.com/MahmoudEissa/ESNetworkManager"
-s.version = "1.2.6"
+s.version = "2.0"
 #s.social_media_url   = "https://www.linkedin.com/in/mahmoudeissa"
 s.source = { :git => "https://github.com/MahmoudEissa/ESNetworkManager.git", :tag => "#{s.version}"}
 #s.framework = "Foundation"
@@ -37,7 +37,7 @@ s.subspec 'Promise' do |ss|
 s.subspec 'Rx' do |ss|
 	ss.source_files = "ESNetworkManager/Sources/ESNetworkManager+Rx/**/*.{swift}"
 	ss.dependency 'ESNetworkManager/Core'
-	ss.dependency 'RxSwift', '~> 5'
+	ss.dependency 'RxSwift', '~> 6.5.0'
 	end
 
 s.subspec 'ObjectMapper' do |ss|

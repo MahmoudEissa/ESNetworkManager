@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C40B36E299442CE00CCECED /* ESNetworkManager+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40B36D299442CE00CCECED /* ESNetworkManager+Async.swift */; };
+		3CF663F029944F9B000439C6 /* ESNetworkManager+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF663EF29944F9B000439C6 /* ESNetworkManager+Combine.swift */; };
+		3CF663F4299BAB35000439C6 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CF663F3299BAB35000439C6 /* Data.json */; };
+		3CF663F6299BAB59000439C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF663F5299BAB59000439C6 /* Extensions.swift */; };
+		3CF663F8299BCE63000439C6 /* ESNetworkResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF663F7299BCE63000439C6 /* ESNetworkResponseTests.swift */; };
+		3CF663FA299BD015000439C6 /* ESNetworkManager+AsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF663F9299BD015000439C6 /* ESNetworkManager+AsyncTests.swift */; };
+		3CF663FC299D3E61000439C6 /* ESNetworkManager+PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF663FB299D3E61000439C6 /* ESNetworkManager+PromiseTests.swift */; };
+		3CF663FF299D44D4000439C6 /* ESNetworkManager+RxSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF663FE299D44D4000439C6 /* ESNetworkManager+RxSwiftTests.swift */; };
+		3CF66401299D4765000439C6 /* ESNetworkManager+CombineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF66400299D4765000439C6 /* ESNetworkManager+CombineTests.swift */; };
+		3CF6640429A69870000439C6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62CF242D042B004CE3DC /* Models.swift */; };
+		3CF6640629A69A97000439C6 /* ESNetworkManager+Async+ObjectMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF6640529A69A97000439C6 /* ESNetworkManager+Async+ObjectMapperTests.swift */; };
+		3CF6640829A69AC4000439C6 /* ESNetworkManager+Promise+ObjectMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF6640729A69AC4000439C6 /* ESNetworkManager+Promise+ObjectMapperTests.swift */; };
+		3CF6640A29A69AEA000439C6 /* ESNetworkManager+RxSwift+ObjectMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF6640929A69AEA000439C6 /* ESNetworkManager+RxSwift+ObjectMapperTests.swift */; };
+		3CF6640C29A69B09000439C6 /* ESNetworkManager+Combine+ObjectMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF6640B29A69B09000439C6 /* ESNetworkManager+Combine+ObjectMapperTests.swift */; };
+		3CF6640E29A69CE7000439C6 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF6640D29A69CE7000439C6 /* JSONTests.swift */; };
+		3CF6641029A6A41E000439C6 /* MPFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF6640F29A6A41E000439C6 /* MPFileTests.swift */; };
 		4231C74FBCEBDD7DF852B220 /* libPods-ESNetworkManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3C7A39C51ED4154C2259C3 /* libPods-ESNetworkManager.a */; };
 		520C62D0242D042B004CE3DC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62CF242D042B004CE3DC /* Models.swift */; };
 		520C6307242D2A09004CE3DC /* ESNetworkResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C62FA242D2A09004CE3DC /* ESNetworkResponseMapper.swift */; };
@@ -26,9 +42,8 @@
 		524D3AF8242C9F710000001C /* ESNetworkManager+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AF7242C9F710000001C /* ESNetworkManager+Promise.swift */; };
 		524D3AFA242C9F760000001C /* ESNetworkManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3AF9242C9F760000001C /* ESNetworkManager+Rx.swift */; };
 		524D3B04242C9F920000001C /* ESNetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5249609E242C9C9D008BCB4F /* ESNetworkManager.framework */; };
-		524D3B11242CA0050000001C /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B0D242CA0040000001C /* MockAPIClient.swift */; };
+		524D3B11242CA0050000001C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B0D242CA0040000001C /* NetworkManager.swift */; };
 		524D3B12242CA0050000001C /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B0E242CA0040000001C /* MockURLProtocol.swift */; };
-		524D3B16242CA0560000001C /* ESNetworkResponseMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B14242CA0560000001C /* ESNetworkResponseMappingTests.swift */; };
 		524D3B17242CA0560000001C /* ESNetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D3B15242CA0560000001C /* ESNetworkManagerTests.swift */; };
 		52B9EC7E2435D79700CA75A6 /* ESNetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B9EC7C2435D79700CA75A6 /* ESNetworkManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95D82563EB2EA59DE030692E /* libPods-ESNetworkManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB5B6D28DA7C3DCBEDE56E6 /* libPods-ESNetworkManagerTests.a */; };
@@ -46,6 +61,21 @@
 
 /* Begin PBXFileReference section */
 		271D0A1177502830BA1B0310 /* Pods-ESNetworkManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESNetworkManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-ESNetworkManagerTests/Pods-ESNetworkManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3C40B36D299442CE00CCECED /* ESNetworkManager+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Async.swift"; sourceTree = "<group>"; };
+		3CF663EF29944F9B000439C6 /* ESNetworkManager+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Combine.swift"; sourceTree = "<group>"; };
+		3CF663F3299BAB35000439C6 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
+		3CF663F5299BAB59000439C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3CF663F7299BCE63000439C6 /* ESNetworkResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESNetworkResponseTests.swift; sourceTree = "<group>"; };
+		3CF663F9299BD015000439C6 /* ESNetworkManager+AsyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+AsyncTests.swift"; sourceTree = "<group>"; };
+		3CF663FB299D3E61000439C6 /* ESNetworkManager+PromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+PromiseTests.swift"; sourceTree = "<group>"; };
+		3CF663FE299D44D4000439C6 /* ESNetworkManager+RxSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+RxSwiftTests.swift"; sourceTree = "<group>"; };
+		3CF66400299D4765000439C6 /* ESNetworkManager+CombineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+CombineTests.swift"; sourceTree = "<group>"; };
+		3CF6640529A69A97000439C6 /* ESNetworkManager+Async+ObjectMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Async+ObjectMapperTests.swift"; sourceTree = "<group>"; };
+		3CF6640729A69AC4000439C6 /* ESNetworkManager+Promise+ObjectMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Promise+ObjectMapperTests.swift"; sourceTree = "<group>"; };
+		3CF6640929A69AEA000439C6 /* ESNetworkManager+RxSwift+ObjectMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+RxSwift+ObjectMapperTests.swift"; sourceTree = "<group>"; };
+		3CF6640B29A69B09000439C6 /* ESNetworkManager+Combine+ObjectMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Combine+ObjectMapperTests.swift"; sourceTree = "<group>"; };
+		3CF6640D29A69CE7000439C6 /* JSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
+		3CF6640F29A6A41E000439C6 /* MPFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPFileTests.swift; sourceTree = "<group>"; };
 		520C62CF242D042B004CE3DC /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		520C62FA242D2A09004CE3DC /* ESNetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkResponseMapper.swift; sourceTree = "<group>"; };
 		520C62FB242D2A09004CE3DC /* CodableNetworkResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableNetworkResponseMapper.swift; sourceTree = "<group>"; };
@@ -66,9 +96,8 @@
 		524D3AF9242C9F760000001C /* ESNetworkManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ESNetworkManager+Rx.swift"; sourceTree = "<group>"; };
 		524D3AFF242C9F920000001C /* ESNetworkManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESNetworkManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		524D3B03242C9F920000001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		524D3B0D242CA0040000001C /* MockAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
+		524D3B0D242CA0040000001C /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		524D3B0E242CA0040000001C /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
-		524D3B14242CA0560000001C /* ESNetworkResponseMappingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkResponseMappingTests.swift; sourceTree = "<group>"; };
 		524D3B15242CA0560000001C /* ESNetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESNetworkManagerTests.swift; sourceTree = "<group>"; };
 		52B9EC7C2435D79700CA75A6 /* ESNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESNetworkManager.h; sourceTree = "<group>"; };
 		52B9EC7D2435D79700CA75A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CF663FD299D44A4000439C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3CF663F3299BAB35000439C6 /* Data.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		520C62F8242D2A09004CE3DC /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +164,8 @@
 			children = (
 				520C6300242D2A09004CE3DC /* ESNetworkManager.swift */,
 				520C62FF242D2A09004CE3DC /* ESNetworkManagerExtenions.swift */,
+				3C40B36D299442CE00CCECED /* ESNetworkManager+Async.swift */,
+				3CF663EF29944F9B000439C6 /* ESNetworkManager+Combine.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -212,12 +251,24 @@
 		524D3B00242C9F920000001C /* ESNetworkManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				524D3B15242CA0560000001C /* ESNetworkManagerTests.swift */,
-				524D3B14242CA0560000001C /* ESNetworkResponseMappingTests.swift */,
-				524D3B0D242CA0040000001C /* MockAPIClient.swift */,
-				524D3B0E242CA0040000001C /* MockURLProtocol.swift */,
-				520C62CF242D042B004CE3DC /* Models.swift */,
 				524D3B03242C9F920000001C /* Info.plist */,
+				3CF663FD299D44A4000439C6 /* Resources */,
+				524D3B0D242CA0040000001C /* NetworkManager.swift */,
+				524D3B0E242CA0040000001C /* MockURLProtocol.swift */,
+				524D3B15242CA0560000001C /* ESNetworkManagerTests.swift */,
+				3CF663F9299BD015000439C6 /* ESNetworkManager+AsyncTests.swift */,
+				3CF663FB299D3E61000439C6 /* ESNetworkManager+PromiseTests.swift */,
+				3CF663FE299D44D4000439C6 /* ESNetworkManager+RxSwiftTests.swift */,
+				3CF66400299D4765000439C6 /* ESNetworkManager+CombineTests.swift */,
+				3CF6640529A69A97000439C6 /* ESNetworkManager+Async+ObjectMapperTests.swift */,
+				3CF6640729A69AC4000439C6 /* ESNetworkManager+Promise+ObjectMapperTests.swift */,
+				3CF6640929A69AEA000439C6 /* ESNetworkManager+RxSwift+ObjectMapperTests.swift */,
+				3CF6640B29A69B09000439C6 /* ESNetworkManager+Combine+ObjectMapperTests.swift */,
+				3CF663F7299BCE63000439C6 /* ESNetworkResponseTests.swift */,
+				3CF6640D29A69CE7000439C6 /* JSONTests.swift */,
+				3CF6640F29A6A41E000439C6 /* MPFileTests.swift */,
+				520C62CF242D042B004CE3DC /* Models.swift */,
+				3CF663F5299BAB59000439C6 /* Extensions.swift */,
 			);
 			path = ESNetworkManagerTests;
 			sourceTree = "<group>";
@@ -360,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CF663F4299BAB35000439C6 /* Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,13 +475,16 @@
 				524D3AE6242C9E890000001C /* MappableNetworkReponseMapper.swift in Sources */,
 				524D3AE8242C9E890000001C /* MappableArrayNetworkReponseMapper.swift in Sources */,
 				520C6308242D2A09004CE3DC /* CodableNetworkResponseMapper.swift in Sources */,
+				3CF663F029944F9B000439C6 /* ESNetworkManager+Combine.swift in Sources */,
 				524D3AFA242C9F760000001C /* ESNetworkManager+Rx.swift in Sources */,
+				3C40B36E299442CE00CCECED /* ESNetworkManager+Async.swift in Sources */,
 				520C630D242D2A09004CE3DC /* MPFile.swift in Sources */,
 				520C6309242D2A09004CE3DC /* RawRepresentableNetworkReponseMapper.swift in Sources */,
 				524D3AF8242C9F710000001C /* ESNetworkManager+Promise.swift in Sources */,
 				520C630A242D2A09004CE3DC /* RawRepresentableArrayNetworkReponseMapper.swift in Sources */,
 				520C630F242D2A09004CE3DC /* ESNetworkRequest.swift in Sources */,
 				520C630E242D2A09004CE3DC /* NetworkResponse.swift in Sources */,
+				3CF6640429A69870000439C6 /* Models.swift in Sources */,
 				520C630C242D2A09004CE3DC /* ESNetworkManager.swift in Sources */,
 				520C6307242D2A09004CE3DC /* ESNetworkResponseMapper.swift in Sources */,
 				524D3AF6242C9F6B0000001C /* ESNetworkManager+ObjectMapper.swift in Sources */,
@@ -440,11 +495,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524D3B16242CA0560000001C /* ESNetworkResponseMappingTests.swift in Sources */,
+				3CF663FC299D3E61000439C6 /* ESNetworkManager+PromiseTests.swift in Sources */,
+				3CF663F6299BAB59000439C6 /* Extensions.swift in Sources */,
+				3CF663F8299BCE63000439C6 /* ESNetworkResponseTests.swift in Sources */,
 				524D3B12242CA0050000001C /* MockURLProtocol.swift in Sources */,
+				3CF6640E29A69CE7000439C6 /* JSONTests.swift in Sources */,
+				3CF6640629A69A97000439C6 /* ESNetworkManager+Async+ObjectMapperTests.swift in Sources */,
 				524D3B17242CA0560000001C /* ESNetworkManagerTests.swift in Sources */,
-				524D3B11242CA0050000001C /* MockAPIClient.swift in Sources */,
+				524D3B11242CA0050000001C /* NetworkManager.swift in Sources */,
+				3CF6640C29A69B09000439C6 /* ESNetworkManager+Combine+ObjectMapperTests.swift in Sources */,
+				3CF6640829A69AC4000439C6 /* ESNetworkManager+Promise+ObjectMapperTests.swift in Sources */,
+				3CF66401299D4765000439C6 /* ESNetworkManager+CombineTests.swift in Sources */,
+				3CF6640A29A69AEA000439C6 /* ESNetworkManager+RxSwift+ObjectMapperTests.swift in Sources */,
+				3CF6641029A6A41E000439C6 /* MPFileTests.swift in Sources */,
 				520C62D0242D042B004CE3DC /* Models.swift in Sources */,
+				3CF663FF299D44D4000439C6 /* ESNetworkManager+RxSwiftTests.swift in Sources */,
+				3CF663FA299BD015000439C6 /* ESNetworkManager+AsyncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,7 @@ target 'ESNetworkManager' do
     pod 'Alamofire', '~> 5.0'
     pod 'ObjectMapper', '~> 3.5'
     pod "PromiseKit", "~> 6.8"
-    pod 'RxSwift', '~> 5'
+    pod 'RxSwift', '6.5.0'
     target 'ESNetworkManagerTests' do
            inherit! :search_paths
     end

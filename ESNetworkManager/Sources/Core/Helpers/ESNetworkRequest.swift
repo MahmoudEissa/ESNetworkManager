@@ -9,40 +9,29 @@ import Alamofire
 
 public class ESNetworkRequest {
     
-    ///The ***Network Base Url***
-    public var base = ""
-    
-    ///The ***Network API Path*** ex ..api\login
-    public var path = ""
+    public private(set) var url: String
     public var method = HTTPMethod.get
     public var headers: [String: String]?
     public var parameters: [String: Any]?
     public var encoding: ParameterEncoding = URLEncoding.default
     public var selections: [Selection] = []
  
-    public init(base: String,
-         path: String,
+    public init(url: String,
          method: HTTPMethod = .get,
          headers: [String: String]? = nil,
          parameters: [String: Any]? = nil,
-         encoding: ParameterEncoding = URLEncoding.default ) {
-        self.base = base
-        self.path = path
+         encoding: ParameterEncoding = URLEncoding.default) {
+        self.url = url
         self.method = method
         self.headers = headers
         self.parameters = parameters
         self.encoding = encoding
     }
 }
-public extension ESNetworkRequest {
-    var fullPath: String {
-        return (base + "/" + path).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-     }
-}
 extension ESNetworkRequest: CustomStringConvertible {
     public var description: String {
         var temp = "--------------------------------------------------\n"
-        temp.append("\(method.rawValue): \(fullPath)\n")
+        temp.append("\(method.rawValue): \(url)\n")
         if let headers = headers {
             temp.append("Headers: \(headers.jsonString() ?? "{}")\n")
         }

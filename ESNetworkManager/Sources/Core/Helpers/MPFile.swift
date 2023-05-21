@@ -7,6 +7,7 @@
 import UIKit
 
 public class MPFile {
+    
     public let data: Data
     public var key = ""
     public var name = ""

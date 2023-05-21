@@ -7,29 +7,43 @@
 //
 
 
-import ObjectMapper
+ import ObjectMapper
 
-// MARK:- ObjectMapper User
-class TestMappableUser: Mappable{
+// MARK:- Enum
+enum UserType: String {
+    case admin = "admin"
+}
+
+class OAPIResponse: ObjectMapper.Mappable {
+    var squadName = ""
+    var members: [OMember] = []
+
+    required init?(map: ObjectMapper.Map) { }
+    
+    func mapping(map: ObjectMapper.Map) {
+        squadName <- map["squadName"]
+        members <- map["members"]
+    }
+}
+
+class OMember: ObjectMapper.Mappable {
     var name = ""
     var age = 0
-    required init?(map: Map) {}
-    func mapping(map: Map) {
+    
+    required init?(map: ObjectMapper.Map) { }
+    
+    func mapping(map: ObjectMapper.Map) {
         name <- map["name"]
         age <- map["age"]
     }
 }
 
-// MARK:- Codable User
-class TestCodableUser: Codable {
-    var name = ""
-    var age = 0
-    private enum CodingKeys : String, CodingKey {
-        case name, age
-    }
+class DAPIResponse: Codable {
+    let squadName: String
+    let members: [DMember]
 }
 
-// MARK:- Enum
-enum UserType: String {
-    case admin = "Admin"
+class DMember: Codable {
+    let name: String
+    let age: Int
 }

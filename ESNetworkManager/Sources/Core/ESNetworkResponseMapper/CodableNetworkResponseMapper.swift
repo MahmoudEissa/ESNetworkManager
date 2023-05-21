@@ -15,6 +15,8 @@ open class CodableNetworkResponseMapper<T>: ESNetworkResponseMapper<T> where T: 
         // For Basic types
         if let value = value.object as? T {
             return .success(value)
+        } else if let value = value.data() as? T {
+            return .success(value)
         }
         
         // For Codable
