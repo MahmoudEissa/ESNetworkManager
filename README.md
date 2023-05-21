@@ -13,16 +13,19 @@ Here is the current Swift compatibility breakdown:
 
 - [Installation](#installation)
 - [Usage](#Usage) 
-  - [Initializing ESNetworkRequest](#initializing-ESNetworkRequest)
-  - [Execute Network Request](#ESNetworkManager-executes-the-ESNetworkRequest-with-completion)
+  - [Initializing Request](#Initializing-ESNetworkRequest)
+  - [Execute Network Request](#Execute-request-with-completion)
   - [Uploading MultiPartFile](#Uploading-MultiPartFile)
   - [Download](#Download-file)
   - [Session Manager](#Session-Manager)
   - [DataResponse Mapping](#DataResponse-Mapping)
   - [JSON](#JSON)
-  - [PromiseKit Extensions](#PromiseKit-Extensions)
-  - [RxSwift Extensions](#RxSwift-Extensions)
   - [Request Selections](#Request-Selections)
+- [Request Wrappers](#Request_Wrappers) 
+  - [PromiseKit](#PromiseKit-Extensions)
+  - [RxSwift](#RxSwift-Extensions)
+  - [Swift Combine](#Swift-Combine)
+  - [Swift async/await](#Swift-Async/await)
 - [Reposne Mapping Support](#Reposne-Mapping-Support) 
   - [Codable](#Codable)
   - [ObjectMapper](#ObjectMapper)
@@ -32,9 +35,6 @@ Here is the current Swift compatibility breakdown:
 
 
 
-
-
-[releases]: https://github.com/thoughtbot/Argo/releases
 
 ## Installation
 
@@ -46,7 +46,6 @@ Add the following to your [Podfile](http://guides.cocoapods.org/using/the-podfil
 
 ```
 pod 'ESNetworkManager'
-pod 'ESNetworkManager/Core'
 pod 'ESNetworkManager/Promise'
 pod 'ESNetworkManager/Rx'
 pod 'ESNetworkManager/ObjectMapper'
@@ -63,23 +62,22 @@ Then run `pod install` with CocoaPods 0.36 or newer.
 
 ## Usage
 
-### Initializing ESNetworkRequest
+### Initializing Request
 
 ```swift
-let request = ESNetworkRequest(base: "https://sample.com", path: "api/path")
+let request = ESNetworkRequest(url: "https://sample.com/api/path")
     request.parameters = [:]
     request.headers = [:]
     request.encoding = JSONEncoding.default
     request.method = .post
     request.selections = []
     print(request)
-
 ```
-### ESNetworkManager executes the ESNetworkRequest with completion
+### Execute request with completion
 
 ```swift
 func login(email: String, password: String) {
-    let request = ESNetworkRequest(base: "https://sample.com", path: "api/login")
+    let request = ESNetworkRequest(url: "https://sample.com/api/login")
     request.parameters = ["email": email, "password": password]
     request.encoding = JSONEncoding.default
     request.method = .post
@@ -98,17 +96,16 @@ func login(email: String, password: String) {
 func upload(avatar: UIImage) {
     let data = avatar.jpegData(compressionQuality: 0.5)!
     let file = MPFile(data: data, key: "file", name: "image.jpeg", memType: "image/jpeg")
-    let request = ESNetworkRequest(base: "https://sample.com", path: "api/upload")
-    request.parameters = [:]
+    let request = ESNetworkRequest(url: "https://sample.com/api/upload")
     request.encoding = JSONEncoding.default
     request.method = .post
     ESNetworkManager.upload(data: .multipart([file]), request: request, progress: { progress in
-        print(progress.frationCompleted)
+        print(progress.fractionCompleted)
     }) { (response: ESNetworkResponse<String>) in
-         guard case .success(let imageUrlString) = response else {
-                  return
-              }
-              print(imageUrlString)
+        guard case .success(let url) = response else {
+            return
+        }
+        print(url)
     }
 }
 ```
@@ -116,9 +113,8 @@ func upload(avatar: UIImage) {
 ### Download file
 
 ```swift
-
 func downloadFile() {
-    let request = ESNetworkRequest(base: "https://sample.com", path: "api/file.mp4")
+    let request = ESNetworkRequest(url: "https://sample.com/api/file.mp4")
     ESNetworkManager.download(request: request, progress: { (progress) in
         print(progress.fractionCompleted)
     }) { (response) in
@@ -150,21 +146,23 @@ class NetworkManager: ESNetworkManager {
 ### DataResponse Mapping
 DataResponse advanced Mapping
 if you have a base response with pre defined errors or an error  server message such the following login responses cases
-```swift
-let json_success = """
-    {
-    "status": 200,
-    "message": "Welcom",
-    "content": {"token": "2e13eer1rt13tvxcvz"}
-    }
-"""
-let json_fail = """
-    {
-    "status": 1002,
-    "message": "Wrong Email or password"
-    }
-    """
 ```
+{
+   "status":200,
+   "message":"Welcom",
+   "content":{
+      "token":"2e13eer1rt13tvxcvz"
+   }
+}
+```
+
+```
+{
+   "status":1002,
+   "message":"Wrong Email or password"
+}
+```
+
 Simply override DataResponse Mapping
 ```swift
 class NetworkManager: ESNetworkManager {
@@ -214,58 +212,11 @@ json.adddress.title.value() // --> Cairo
 json.family.0.name.value() // -->  Demo Son
 ```
 
-### PromiseKit Extensions
-
-```swift
-import PromiseKit
-func login(email: String, password: String) -> Promise<String>{
-    return ESNetworkManager.execute(request: request)
-}
-func getProfile(token: String) -> Promise<User>{
-    return ESNetworkManager.execute(request: request)
-}
-// Example
-func login() {
-    firstly {
-        login(email: "m@m.om", password: "password")
-    }.then {
-        getProfile(token: $0)
-    }.done { (user) in
-        print(user.name)
-    }.catch { (error) in
-        print(error.localizedDescription)
-    }
-}
-```
-
-### RxSwift Extensions
-```swift
-import RxSwift
- func login(email: String, password: String) -> Single<String>{
-     return ESNetworkManager.execute(request: request)
- }
- func getProfile(token: String) -> Single<User>{
-     return ESNetworkManager.execute(request: request)
- }
- 
-// Example
-func login() {
-    login(email: "m@m.com", password: "password")
-    .flatMap({getProfile(token: $0)})
-        .subscribe(onSuccess: { (user) in
-            print(user.name)
-        }) { (error) in
-            print(error.localizedDescription)
-    }.disposed(by: disposeBag)
-}
-```
-
 ### Request Selections
-Selections used for if you want to select certian response as the following
-suppose you have json response  after user has logged in successfully
+Selections used for if you want to select a certian response as the following
+suppose you have json response below after user has logged in successfully
 
 ```swift
-let response  = """
 {
     "staus": 200
     "messase" : "Success"
@@ -277,11 +228,10 @@ let response  = """
         "phones": ["01000000000", "02000000000"]
     }
 }
-"""
 ```
 There is no need to create a model like 
 ```swift
-class Model {
+class Model: Codable {
     var status: Int?
     var messase: Int?
     var content: User?
@@ -325,7 +275,36 @@ func login(email: String, password: String) {
     }
 }
 ```
+## Request Wrappers
+A convenient wrappers implemented to use other frameworks as a return type for better usage & concurrency
 
+### PromiseKit
+```swift
+func login(email: String, password: String) -> Promise<User> {
+    return ESNetworkManager.execute(request: request)
+}
+```
+
+### RxSwift
+```swift
+func login(email: String, password: String) -> Single<User> {
+    return ESNetworkManager.execute(request: request)
+}
+```
+
+### Swift Combine
+```swift
+func login(email: String, password: String) -> AnyPublisher<User, Error> {
+    return ESNetworkManager.execute(request: request)
+}
+```
+
+### Swift Async/await
+```swift
+func login(email: String, password: String) async throws -> User {
+    return ESNetworkManager.execute(request: request)
+}
+```
 ## Resposne Mapping
 
 - Default Mapping implemented for Codable, ObjectMapper and RawRepresentable
@@ -333,18 +312,32 @@ func login(email: String, password: String) {
 - In such case api response 
 
 ```swift
-let dictionary: [String: Any] = ["name": "Demo User",
-                                 "age": 41,
-                                 "type": 1,
-                                 "verified": 0,
-                                 "activated": true,
-                                 "phones": ["134234", "532412"],
-                                 "adddress": ["title": "Cairo", "latitude": "12.23123", "logintude": "41.12323"],
-                                 "family": [["name": "Demo Son", "age": 19, "activated": false]]]
+{
+   "name":"Demo User",
+   "age":41,
+   "type":1,
+   "verified":0,
+   "activated":true,
+   "phones":[
+      "134234",
+      "532412"
+   ],
+   "adddress":{
+      "title":"Cairo",
+      "latitude":"12.23123",
+      "logintude":"41.12323"
+   },
+   "family":[
+      {
+         "name":"Demo Son",
+         "age":19,
+         "activated":false
+      }
+   ]
+}
 ```
 
 ### Codable
-
 Codable
 ```swift
 func login(email: String, password: String) {
@@ -356,15 +349,13 @@ func login(email: String, password: String) {
     }
 }
 
-class User: Codable {
-    var name = ""
-    var age = ""
-    var activated = false
-    private enum CodingKeys: String, CodingKey {
-        case name, age, activated
-    }
+struct User: Codable {
+    let name: String
+    let age: Int
+    let activated: Bool 
 }
 ```
+
 String
 ```swift
 func login(email: String, password: String) {
@@ -377,6 +368,7 @@ func login(email: String, password: String) {
     }
 }
 ```
+
 Array
 ```swift
 func login(email: String, password: String) {
